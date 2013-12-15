@@ -1,0 +1,14 @@
+package com.petpicker
+
+global MainWindow mw
+
+/*
+rule "result1"
+	when
+		Person(family=="nie") 
+	then
+	    mw.displayResults("Gratulacje! Oto twój wybór", "path");
+	end
+ */
+
+
