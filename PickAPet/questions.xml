@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<questions>
+	<question id="allergy">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>nie</second>
+                </answer>
+		<questionText>Czy masz alergię na sierść?</questionText>
+		<property>allergy</property>
+	</question>
+	<question id="allergyType">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>3</answersNumber>
+		<answer>
+			<first>na psy</first>
+			<second>na koty</second>
+			<third>na większość zwierząt z sierścią</third>
+                </answer>
+		<questionText>Jaki typ alergii posiadasz?</questionText>
+		<property>allergyType</property>
+	</question>
+	<question id="allergySpecificII">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>3</answersNumber>
+		<answer>
+			<first>na psy</first>
+			<second>na koty</second>
+			<third>na większość zwierząt z sierścią</third>
+                </answer>
+		<questionText>Jaki typ alergii posiada członek twojej rodziny?</questionText>
+		<property>familyAllergyType</property>
+	</question>
+	<question id="age">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>3</answersNumber>
+		<answer>
+			<first>poniżej 25</first>
+			<second>25-60</second>
+			<third>powyżej 60</third>
+                </answer>
+		<questionText>Ile masz lat?</questionText>
+		<property>age</property>
+	</question>
+	<question id="timeRequirements">
+		<aboutPet>tak</aboutPet>
+		<answersNumber>3</answersNumber>
+		<answer>
+			<first>poniżej 0.5</first>
+			<second>1-2</second>
+			<third>powyżej 2</third>
+                </answer>
+		<questionText>Ile godzin dziennie jesteś w stanie poświęcić zwierzęciu?</questionText>
+		<property>timeRequirements</property>
+	</question>
+	<question id="family">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>nie</second>
+                </answer>
+		<questionText>Czy masz rodzinę?</questionText>
+		<property>family</property>
+	</question>
+	<question id="childSubstitute">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>nie</second>
+                </answer>
+		<questionText>Czy zwierzę ma być substytutem dziecka?</questionText>
+		<property>childSubstitute</property>
+	</question>
+	<question id="timeAtHome">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>nie</second>
+                </answer>
+		<questionText>Czy spędzasz dużo czasu poza domem?</questionText>
+		<property>timeAtHome</property>
+	</question>
+	<question id="familyAllergy">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>nie</second>
+                </answer>
+		<questionText>Czy ktoś z twojej rodziny ma alergię?</questionText>
+		<property>familyAllergy</property>
+	</question>
+	<question id="children">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>nie</second>
+                </answer>
+		<questionText>Czy masz dzieci?</questionText>
+		<property>children</property>
+	</question>
+	<question id="childrenAge">
+		<aboutPet>tak</aboutPet>
+		<answersNumber>3</answersNumber>
+		<answer>
+			<first>0-7</first>
+			<second>7-13</second>
+			<third>powyżej 13</third>
+                </answer>
+		<questionText>Ile lat ma twoje najmłodsze dziecko?</questionText>
+		<property>childrenAge</property>
+	</question>
+	<question id="otherAnimals">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>nie</second>
+                </answer>
+		<questionText>Czy posiadasz zwierzęta?</questionText>
+		<property>otherAnimals</property>
+	</question>
+	<question id="otherAnimalsSpecific">
+		<aboutPet>tak</aboutPet>
+		<answersNumber>4</answersNumber>
+		<answer>
+			<first>psy</first>
+			<second>koty</second>
+			<third>psy i koty</third>
+			<fourth>inne</fourth>
+                </answer>
+		<questionText>Jakie zwierzęta posiadasz?</questionText>
+		<property>otherAnimalsFriendliness</property>
+	</question>
+	<question id="cost">
+		<aboutPet>tak</aboutPet>
+		<answersNumber>3</answersNumber>
+		<answer>
+			<first>jak najniższy</first>
+			<second>umiarkowany</second>
+			<third>bez znaczenia</third>
+                </answer>
+		<questionText>Jaki powinien być koszt utrzymania zwierzęcia?</questionText>
+		<property>cost</property>
+	</question>
+	<question id="lifeExpectancy">
+		<aboutPet>tak</aboutPet>
+		<answersNumber>3</answersNumber>
+		<answer>
+			<first>poniżej 12</first>
+			<second>12-16</second>
+			<third>powyżej 16</third>
+                </answer>
+		<questionText>Jaka powinna być średnia długość życia zwierzęcia?</questionText>
+		<property>lifeExpectancy</property>
+	</question>
+	<question id="animalTraits">
+		<aboutPet>tak</aboutPet>
+		<answersNumber>3</answersNumber>
+		<answer>
+			<first>towarzyskie</first>
+			<second>niezależne</second>
+			<third>bez znaczenia</third>
+                </answer>
+		<questionText>Jaki powinien być charakter zwierzęcia?</questionText>
+		<property>personality</property>
+	</question>
+	<question id="activity">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>3</answersNumber>
+		<answer>
+			<first>niska</first>
+			<second>średnia</second>
+			<third>wysoka</third>
+                </answer>
+		<questionText>Jak oceniasz swoją aktywność fizyczną?</questionText>
+		<property>activity</property>
+	</question>
+	<question id="home">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>w domu jednorodzinnym</first>
+			<second>w mieszkaniu</second>
+                </answer>
+		<questionText>Gdzie mieszkasz?</questionText>
+		<property>homeType</property>
+	</question>
+	<question id="homeSurroundingsHouse">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>nie</second>
+                </answer>
+		<questionText>Czy posiadasz ogród?</questionText>
+		<property>homeSurroundingsHouse</property>
+	</question>
+	<question id="homeSurroundingsFlat">
+		<aboutPet>nie</aboutPet>
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>nie</second>
+                </answer>
+		<questionText>Czy w pobliżu twojego mieszkania znajdują się tereny zielone?</questionText>
+		<property>homeSurroundingsFlat</property>
+	</question>		
+</questions>
