@@ -7,8 +7,10 @@ public class Person {
 	private String timeAtHome = "undefined";
 	private String children = "undefined";
 	private String childrenAge = "undefined";
+	private String childSubstitute = "undefined";
 	private String homeType = "undefined";
-	private String homeSurroundings = "undefined";
+	private String homeSurroundingsHouse = "undefined";
+	private String homeSurroundingsFlat = "undefined";
 	private String allergy = "undefined";
 	private String allergyType = "undefined";
 	private String familyAllergy = "undefined";
@@ -53,11 +55,17 @@ public class Person {
 		else if (property == "childrenAge"){
 			this.childrenAge = value;
 		}
-		else if (property == "homeSurroundings"){
-			this.homeSurroundings = value;
+		else if (property == "homeSurroundingsHouse"){
+			this.homeSurroundingsHouse = value;
+		}
+		else if (property == "homeSurroundingsFlat"){
+			this.setHomeSurroundingsFlat(value);
 		}
 		else if (property == "otherAnimals"){
 			this.otherAnimals = value;
+		}
+		else if (property == "childSubstitute"){
+			this.childSubstitute = value;
 		}
 		else{
 			System.out.println("Person property not found:" + property);
@@ -157,12 +165,12 @@ public class Person {
 		this.otherAnimals = otherAnimals;
 	}
 
-	public String getHomeSurroundings() {
-		return homeSurroundings;
+	public String getHomeSurroundingsHouse() {
+		return homeSurroundingsHouse;
 	}
 
-	public void setHomeSurroundings(String homeSurroundings) {
-		this.homeSurroundings = homeSurroundings;
+	public void setHomeSurroundingsHouse(String homeSurroundings) {
+		this.homeSurroundingsHouse = homeSurroundings;
 	}
 
 	public String getTimeAtHome() {
@@ -171,6 +179,22 @@ public class Person {
 
 	public void setTimeAtHome(String timeAtHome) {
 		this.timeAtHome = timeAtHome;
+	}
+
+	public String getHomeSurroundingsFlat() {
+		return homeSurroundingsFlat;
+	}
+
+	public void setHomeSurroundingsFlat(String homeSurroundingsFlat) {
+		this.homeSurroundingsFlat = homeSurroundingsFlat;
+	}
+
+	public String getChildSubstitute() {
+		return childSubstitute;
+	}
+
+	public void setChildSubstitute(String childSubstitute) {
+		this.childSubstitute = childSubstitute;
 	}
 	
 }

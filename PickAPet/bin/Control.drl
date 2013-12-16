@@ -4,15 +4,13 @@ import java.util.ArrayList;
   import java.io.BufferedReader;
   import java.io.IOException;
   import java.io.InputStreamReader;
-  
-global MainWindow mw
 
 rule "allergyGeneral"
 	salience 1
     when
 		Person(allergy=="undefined")
     then
-        mw.setQuestion(false, "Czy jesteś alergikiem?", "allergy", new ArrayList<String>() {{
+        MainWindow.setQuestion(false, "Czy jesteś alergikiem?", "allergy", new ArrayList<String>() {{
     add("tak");
     add("nie");
 }});   
@@ -23,7 +21,7 @@ rule "allergySpecificI"
 	when
 		Person(allergy=="tak" && allergyType=="undefined" && family=="undefined")
 	then
-		mw.setQuestion(false, "Jaki typ alergii posiadasz?", "allergyType" ,new ArrayList<String>() {{
+		MainWindow.setQuestion(false, "Jaki typ alergii posiadasz?", "allergyType" ,new ArrayList<String>() {{
     add("na psy");
     add("na koty");
     add("na większość zwierząt z sierścią");
@@ -35,7 +33,7 @@ rule "allergySpecificII"
 	when
 		Person(familyAllergyType=="undefined" && familyAllergy=="tak")
 	then
-		mw.setQuestion(false, "Jaki typ alergii posiada członek twojej rodziny?", "familyAllergyType" ,new ArrayList<String>() {{
+		MainWindow.setQuestion(false, "Jaki typ alergii posiada członek twojej rodziny?", "familyAllergyType" ,new ArrayList<String>() {{
     add("na psy");
     add("na koty");
     add("na większość zwierząt z sierścią");
@@ -48,7 +46,7 @@ rule "age"
 		Person(age=="undefined")
 		Pet(timeRequirements!="undefined")
     then
-    	mw.setQuestion(false, "Ile masz lat?", "age", new ArrayList<String>() {{
+    	MainWindow.setQuestion(false, "Ile masz lat?", "age", new ArrayList<String>() {{
     add("poniżej 25");
     add("26-60");
     add("powyżej 60");
@@ -61,7 +59,7 @@ rule "timeRequirements"
     when
 		Pet(timeRequirements=="undefined")
     then
-    	mw.setQuestion(true, "Ile godzin dziennie jesteś w stanie poświęcić zwierzęciu?", "timeRequirements", new ArrayList<String>() {{
+    	MainWindow.setQuestion(true, "Ile godzin dziennie jesteś w stanie poświęcić zwierzęciu?", "timeRequirements", new ArrayList<String>() {{
     add("poniżej 0.5");
     add("1-2");
     add("powyżej 2");
@@ -73,7 +71,18 @@ rule "family"
     when
 		Person(family=="undefined" && allergy!="undefined")
     then
-    	mw.setQuestion(false, "Czy masz rodzinę?", "family", new ArrayList<String>() {{
+    	MainWindow.setQuestion(false, "Czy masz rodzinę?", "family", new ArrayList<String>() {{
+    add("tak");
+    add("nie");
+}});
+end
+
+rule "childSubstitute"
+	salience 4
+    when
+		Person(childSubstitute=="undefined" && allergy!="undefined")
+    then
+    	MainWindow.setQuestion(false, "Czy zwierzę ma być substytutem dziecka?", "childSubstitute", new ArrayList<String>() {{
     add("tak");
     add("nie");
 }});
@@ -84,7 +93,7 @@ rule "timeAtHome"
     when
 		Person(family=="nie" && timeAtHome=="undefined")
     then
-    	mw.setQuestion(false, "Czy spędzasz dużo czasu poza domem?", "timeAtHome", new ArrayList<String>() {{
+    	MainWindow.setQuestion(false, "Czy spędzasz dużo czasu poza domem?", "timeAtHome", new ArrayList<String>() {{
     add("tak");
     add("nie");
 }});
@@ -95,7 +104,7 @@ rule "familyAllergy"
     when
 		Person(family=="tak" && familyAllergy=="undefined")
     then
-    	mw.setQuestion(false, "Czy ktoś z twojej rodziny ma alergię?", "familyAllergy", new ArrayList<String>() {{
+    	MainWindow.setQuestion(false, "Czy ktoś z twojej rodziny ma alergię?", "familyAllergy", new ArrayList<String>() {{
     add("tak");
     add("nie");
 }});
@@ -106,7 +115,7 @@ rule "children"
     when
 		Person(family=="tak" && children=="undefined")
     then
-    	mw.setQuestion(false, "Czy masz dzieci?", "children", new ArrayList<String>() {{
+    	MainWindow.setQuestion(false, "Czy masz dzieci?", "children", new ArrayList<String>() {{
     add("tak");
     add("nie");
 }});
@@ -117,20 +126,11 @@ rule "childrenAge"
     when
 		Person(children=="tak" && childrenAge=="undefined")
     then
-    	mw.setQuestion(false, "Ile lat ma twoje najmłodsze dziecko?", "childrenAge", new ArrayList<String>() {{
+    	MainWindow.setQuestion(false, "Ile lat ma twoje najmłodsze dziecko?", "childrenAge", new ArrayList<String>() {{
     add("0-7");
     add("7-13");
     add("powyżej 13");
 }});
-end
-
-rule "childFriendliness"
-	salience 6
-    when
-		Person(children=="tak" && childrenAge=="0-7")
-		a: Pet(childFriendliness=="undefined")
-    then
-    	modify (a) {setChildFriendliness("tak")};
 end
 
 rule "otherAnimals"
@@ -139,7 +139,7 @@ rule "otherAnimals"
 		(or Person(otherAnimals == "undefined" && allergy=="nie" && familyAllergy=="nie")
 		     Person(otherAnimals == "undefined" && allergy=="nie" && family=="nie"))
     then
-    	mw.setQuestion(false, "Czy posiadasz zwierzęta?", "otherAnimals", new ArrayList<String>() {{
+    	MainWindow.setQuestion(false, "Czy posiadasz zwierzęta?", "otherAnimals", new ArrayList<String>() {{
     add("tak");
     add("nie");
 }});
@@ -151,9 +151,10 @@ rule "otherAnimalsSpecific"
 		Person(otherAnimals == "tak")
 		Pet(otherAnimalsFriendliness == "undefined")
     then
-    	mw.setQuestion(true, "Jakie to zwierzęta?", "otherAnimalsFriendliness", new ArrayList<String>() {{
+    	MainWindow.setQuestion(true, "Jakie to zwierzęta?", "otherAnimalsFriendliness", new ArrayList<String>() {{
     add("psy");
     add("koty");
+    add("psy i koty");
     add("inne");
 }});
 end
@@ -164,7 +165,7 @@ rule "cost"
 		Pet(cost=="undefined")
 		Person(family!="undefined")
 	then
-	    	mw.setQuestion(true, "Jaki powinien być koszt utrzymania zwierzęcia", "cost", new ArrayList<String>() {{
+	    	MainWindow.setQuestion(true, "Jaki powinien być koszt utrzymania zwierzęcia", "cost", new ArrayList<String>() {{
     add("jak najmniejszy");
     add("umiarkowany");
     add("bez znaczenia");
@@ -177,10 +178,23 @@ rule "lifeExpectancy"
 		Pet(lifeExpectancy=="undefined")
 		Person(family!="undefined")
 	then
-	    	mw.setQuestion(true, "Jaka powinna być średnia długość życia zwierzęcia", "lifeExpectancy", new ArrayList<String>() {{
-    add("poniżej 7");
-    add("7-12");
-    add("powyżej 12");
+	    	MainWindow.setQuestion(true, "Jaka powinna być średnia długość życia zwierzęcia?", "lifeExpectancy", new ArrayList<String>() {{
+    add("poniżej 12");
+    add("12-16");
+    add("powyżej 16");
+    add("bez znaczenia");
+}});
+end 
+
+rule "animalTraits"
+	salience 22
+	when 
+		Pet(personality=="undefined")
+		Person(family!="undefined")
+	then
+	    	MainWindow.setQuestion(true, "Jaki powinien być charakter zwierzęcia?", "personality", new ArrayList<String>() {{
+    add("towarzyskie");
+    add("niezależne");
     add("bez znaczenia");
 }});
 end 
@@ -192,7 +206,7 @@ rule "activity"
 		Pet(timeRequirements != "poniżej 0.5")
 		Pet(lifeExpectancy != "poniżej 7")
 	then
-		mw.setQuestion(false, "Jak oceniasz swoją aktywność fizyczną?", "activity", new ArrayList<String>() {{
+		MainWindow.setQuestion(false, "Jak oceniasz swoją aktywność fizyczną?", "activity", new ArrayList<String>() {{
     add("niska");
     add("średnia");
     add("wysoka");
@@ -202,10 +216,10 @@ end
 rule "home"
 	salience 25
 	when
-		Person(homeType == "undefined" && allergy=="nie" && familyAllergy=="nie")
+		Person(homeType == "undefined")
 		Pet(timeRequirements != "poniżej 0.5")
 	then
-	    	mw.setQuestion(false, "Gdzie mieszkasz", "homeType", new ArrayList<String>() {{
+	    	MainWindow.setQuestion(false, "Gdzie mieszkasz", "homeType", new ArrayList<String>() {{
     add("w domu jednorodzinnym");
     add("w mieszkaniu");
 }});
@@ -214,9 +228,9 @@ end
 rule "homeSurroundingsHouse"
 	salience 26
 	when
-		Person (homeType=="w domu jednorodzinnym")
+		Person (homeType=="w domu jednorodzinnym" && allergy=="nie" && familyAllergy!="tak")
 	then
-		    	mw.setQuestion(false, "Czy posiadasz ogród", "homeSurroundings", new ArrayList<String>() {{
+		    	MainWindow.setQuestion(false, "Czy posiadasz ogród", "homeSurroundingsHouse", new ArrayList<String>() {{
     add("tak");
     add("nie");
 }});
@@ -227,7 +241,7 @@ rule "homeSurroundingsFlat"
 	when
 		Person (homeType=="w mieszkaniu")
 	then
-		    	mw.setQuestion(false, "Czy w pobliżu twojego mieszkania znajdują się tereny zielone?", "homeSurroundings", new ArrayList<String>() {{
+		    	MainWindow.setQuestion(false, "Czy w pobliżu twojego mieszkania znajdują się tereny zielone?", "homeSurroundingsFlat", new ArrayList<String>() {{
     add("tak");
     add("nie");
 }});

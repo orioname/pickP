@@ -1,13 +1,20 @@
 package com.petpicker
 
-global MainWindow mw
+rule "childFriendliness"
+	salience 6
+    when
+		Person(children=="tak" && childrenAge=="0-7")
+		a: Pet(childFriendliness=="undefined")
+    then
+    	modify (a) {setChildFriendliness("tak")};
+end
 
 /*
 rule "result1"
 	when
 		Person(family=="nie") 
 	then
-	    mw.displayResults("Gratulacje! Oto twój wybór", "path");
+	    MainWindow.displayResults("Gratulacje! Oto twój wybór", "path");
 	end
  */
 

@@ -8,8 +8,14 @@
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
   <factId>1</factId>
-  <objectToString>com.petpicker.Pet@45378f</objectToString>
+  <objectToString>com.petpicker.Pet@552a2b</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>home [1, 2]</activationId>
+  <rule>home</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>4</type>
   <activationId>allergyGeneral [2]</activationId>
@@ -25,8 +31,20 @@
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
   <factId>2</factId>
-  <objectToString>com.petpicker.Person@498713</objectToString>
+  <objectToString>com.petpicker.Person@f2164f</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>home [1, 2]</activationId>
+  <rule>home</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>home [1, 2]</activationId>
+  <rule>home</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>6</type>
   <activationId>activity [1, 1, 2]</activationId>

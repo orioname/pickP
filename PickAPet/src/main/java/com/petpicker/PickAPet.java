@@ -15,22 +15,27 @@ import org.drools.runtime.rule.FactHandle;
 
 public class PickAPet {
 
+	private static Pet pet;
+	private static Person person;
+	static FactHandle petHandle;
+	static FactHandle personHandle;
+	static StatefulKnowledgeSession ksession;
+	
     public static final void main(String[] args) {
     	
         try {        	
             KnowledgeBase kbase = readKnowledgeBase();
-            StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
+            ksession = kbase.newStatefulKnowledgeSession();
             KnowledgeRuntimeLogger logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "PickAPet");
             
-            Pet pet = new Pet();
-            Person person = new Person();
+            pet = new Pet();
+            person = new Person();
         	
-            FactHandle petHandle = ksession.insert(pet);
-            FactHandle personHandle = ksession.insert(person);
+            petHandle = ksession.insert(pet);
+            personHandle = ksession.insert(person);
             
             MainWindow mw = new MainWindow(ksession, pet, petHandle, person, personHandle);
             mw.frame.setVisible(true);
-            ksession.setGlobal("mw", mw);
                
             ksession.fireAllRules();
             
@@ -55,5 +60,18 @@ public class PickAPet {
         kbase.addKnowledgePackages(kbuilder.getKnowledgePackages());
         return kbase;
     }
+    
+	public static void updateKnowledge(Question question, int selectedAnswer){
+		if (question.isAboutPet())
+		{
+			question.updatePet(pet, selectedAnswer);
+			ksession.update(petHandle, pet);
+		}
+		else{
+			question.updatePerson(person, selectedAnswer);
+			ksession.update(personHandle, person);
+		}
+		ksession.fireAllRules();
+	}
 
 }

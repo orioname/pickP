@@ -33,7 +33,7 @@ public class MainWindow {
 	JPanel optionsPanel;
 	JPanel buttonPanel;
 	private Question question = new Question(false, "Witaj!", "", null);
-	private Question newQuestion = new Question(false, "Witaj!", "", null);
+	private static Question newQuestion = new Question(false, "Witaj!", "", null);
 	 
 	/**
 	 * Create the application.
@@ -49,16 +49,12 @@ public class MainWindow {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedLookAndFeelException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -116,43 +112,29 @@ public class MainWindow {
 		Next.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				//gather the answer
-				int selected = -1;
-				selected = getSelectionIndex();
+				int selected = getSelectionIndex();
 				
 				//update knowledge base with gathered knowledge
 				if (selected > -1){
-					if (question.isAboutPet())
-					{
-						question.updatePet(pet, selected);
-						ksession.update(petHandle, pet);
-					}
-					else{
-						question.updatePerson(person, selected);
-						ksession.update(personHandle, person);
-					}
-					ksession.fireAllRules();
+					PickAPet.updateKnowledge(question, selected);
 				}
-				
-				//set new question
-				setNewText();
-				
-				question = newQuestion;
+			
+				setNewQuestion();	
 			}
 		});
 		buttonPanel.add(Next);
 	}
 	
-	
-	public Question getQuestion() {
-		return question;
-	}
-
-	public void setQuestion(boolean ifAnimal, String questionText, String property, ArrayList<String> answers) {
-		this.newQuestion.setQuestion(ifAnimal, questionText, property, answers);
+	public static void setQuestion(boolean ifAnimal, String questionText, String property, ArrayList<String> answers) {
+		newQuestion.setQuestion(ifAnimal, questionText, property, answers);
 	}
 	
-	private void setNewText(){
+	public static void displayResults(String result, String imagePath){
+		ResultWindow rw = new ResultWindow(result, imagePath);
+		rw.setVisible(true);
+	}
+	
+	private void setNewQuestion(){
 		radioButtonsClear();
 		
 		questionText.setText(newQuestion.getQuestionText());
@@ -164,6 +146,8 @@ public class MainWindow {
 			}
 			frame.repaint();
 		}
+		
+		question = newQuestion;
 	}
 	
 	private void radioButtonsClear(){
@@ -183,10 +167,5 @@ public class MainWindow {
 		}
 		
 		return selected;
-	}
-	
-	public void displayResults(String result, String imagePath){
-		ResultWindow rw = new ResultWindow(result, imagePath);
-		rw.setVisible(true);
 	}
 }
