@@ -17,34 +17,34 @@ public class Pet {
 	
 		boolean success = true;
 		
-		if (property == "size"){
+		if (property.equals("size")){
 			this.size = value;
 		}
-		else if (property == "species"){
+		else if (property.equals("species")){
 			this.species = value;
 		}
-		else if (property == "breed"){
+		else if (property.equals("breed")){
 			this.breed = value;
 		}
-		else if (property == "activity"){
+		else if (property.equals("activity")){
 			this.activity = value;
 		}
-		else if (property == "personality"){
+		else if (property.equals("personality")){
 			this.personality = value;
 		}
-		else if (property == "timeRequirements"){
+		else if (property.equals("timeRequirements")){
 			this.timeRequirements = value;
 		}
-		else if (property == "cost"){
+		else if (property.equals("cost")){
 			this.cost = value;
 		}
-		else if (property == "childFriendliness"){
+		else if (property.equals("childFriendliness")){
 			this.childFriendliness = value;
 		}
-		else if (property == "otherAnimalsFriendliness"){
+		else if (property.equals("otherAnimalsFriendliness")){
 			this.otherAnimalsFriendliness = value;
 		}
-		else if (property == "lifeExpectancy"){
+		else if (property.equals("lifeExpectancy")){
 			this.lifeExpectancy = value;
 		}
 		else{

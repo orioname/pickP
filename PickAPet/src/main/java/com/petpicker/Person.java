@@ -22,53 +22,49 @@ public class Person {
 		
 		boolean success = true;
 		
-		if (property == "age"){
+		if (property.equals("age")){
 			this.age = value;
 		}
-		else if (property == "family"){
+		else if (property.equals("family")){
 			this.family = value;
 		}
-		else if (property == "timeAtHome"){
+		else if (property.equals("timeAtHome")){
 			this.timeAtHome = value;
 		}
-		else if (property == "homeType"){
+		else if (property.equals("homeType")){
 			this.homeType = value;
 		}
-		else if (property == "allergy"){
+		else if (property.equals("allergy")){
 			this.allergy = value;
 		}
-		else if (property == "allergyType"){
+		else if (property.equals("allergyType")){
 			this.allergyType = value;
 		}
-		else if (property == "familyAllergy"){
+		else if (property.equals("familyAllergy")){
 			this.familyAllergy = value;
 		}
-		else if (property == "familyAllergyType"){
+		else if (property.equals("familyAllergyType")){
 			this.familyAllergyType = value;
 		}
-		else if (property == "activity"){
+		else if (property.equals("activity")){
 			this.activity = value;
 		}
-		else if (property == "children"){
+		else if (property.equals("children")){
 			this.children = value;
 		}
-		else if (property == "childrenAge"){
-			this.childrenAge = value;
-		}
-		else if (property == "homeSurroundingsHouse"){
-			this.homeSurroundingsHouse = value;
-		}
-		else if (property == "homeSurroundingsFlat"){
-			this.setHomeSurroundingsFlat(value);
-		}
-		else if (property == "otherAnimals"){
-			this.otherAnimals = value;
-		}
-		else if (property == "childSubstitute"){
+		else if (property.equals("childSubstitute")){
 			this.childSubstitute = value;
 		}
+		else if (property.equals("childrenAge")){
+			this.childrenAge = value;
+		}
+		else if (property.equals("homeSurroundingsHouse")){
+			this.homeSurroundingsHouse = value;
+		}
+		
 		else{
 			System.out.println("Person property not found:" + property);
+			success = false;
 		}
 		
 		if (success){

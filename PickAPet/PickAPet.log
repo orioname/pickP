@@ -8,7 +8,7 @@
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
   <factId>1</factId>
-  <objectToString>com.petpicker.Pet@552a2b</objectToString>
+  <objectToString>com.petpicker.Pet@1531164</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>4</type>
@@ -31,7 +31,7 @@
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
   <factId>2</factId>
-  <objectToString>com.petpicker.Person@f2164f</objectToString>
+  <objectToString>com.petpicker.Person@18f9b75</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>6</type>

@@ -125,8 +125,8 @@ public class MainWindow {
 		buttonPanel.add(Next);
 	}
 	
-	public static void setQuestion(boolean ifAnimal, String questionText, String property, ArrayList<String> answers) {
-		newQuestion.setQuestion(ifAnimal, questionText, property, answers);
+	public static void setQuestion(String questionName) {
+		newQuestion.setQuestion(questionName);
 	}
 	
 	public static void displayResults(String result, String imagePath){
