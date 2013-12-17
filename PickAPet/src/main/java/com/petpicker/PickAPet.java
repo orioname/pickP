@@ -13,19 +13,17 @@ import org.drools.logger.KnowledgeRuntimeLoggerFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
 
 public class PickAPet {
-
-	static StatefulKnowledgeSession ksession;
 	
     public static final void main(String[] args) {
     	
         try {        	
             KnowledgeBase kbase = readKnowledgeBase();
-            ksession = kbase.newStatefulKnowledgeSession();
+            StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
             KnowledgeRuntimeLogger logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "PickAPet");
-                        
+                                       
             MainWindow mw = new MainWindow();
             mw.frame.setVisible(true);
-               
+                    
             ksession.fireAllRules();
             
             logger.close();
@@ -49,11 +47,4 @@ public class PickAPet {
         kbase.addKnowledgePackages(kbuilder.getKnowledgePackages());
         return kbase;
     }
-    
-	public static void updateKnowledge(Question question, int selectedAnswer){
-		ksession.insert(new Property(question.getProperty(), question.getAnswers().get(selectedAnswer)));
-		System.out.println("Property " + question.getProperty() + " with value " + question.getAnswers().get(selectedAnswer) + " inserted.");
-		ksession.fireAllRules();
-	} 
-
 }

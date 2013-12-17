@@ -8,14 +8,15 @@ import java.util.ArrayList;
 rule "age"
     when
     then
-    	MainWindow.setQuestion("age");
+    	Property age = MainWindow.setQuestion("age");
+    	insert (new Property(age.getType(), age.getValue()));
 end
 
 rule "allergyGeneral"
     when
-        Property(type=="age")
     then
-        MainWindow.setQuestion("allergy"); 
+        Property allergy = MainWindow.setQuestion("allergy");
+        insert (new Property(allergy.getType(), allergy.getValue()));
 end
 
 
@@ -28,8 +29,6 @@ end
 
 rule "family"
     when
-    	(or Property(type=="allergy" && value=="nie")
-    		Property(type=="allergyType"))
     then
     	MainWindow.setQuestion("family");
 end
