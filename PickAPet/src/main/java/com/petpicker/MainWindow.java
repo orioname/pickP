@@ -116,7 +116,7 @@ public class MainWindow {
         }
         
         public static Property setQuestion(String questionName) {
-        	
+        	        	
         	newQuestion.setQuestion(questionName);
         	setNewQuestion();
         	

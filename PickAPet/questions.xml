@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <questions>
 	<question id="allergy">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>2</answersNumber>
 		<answer>
 			<first>tak</first>
@@ -11,7 +10,6 @@
 		<property>allergy</property>
 	</question>
 	<question id="allergyType">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>3</answersNumber>
 		<answer>
 			<first>na psy</first>
@@ -22,7 +20,6 @@
 		<property>allergyType</property>
 	</question>
 	<question id="allergySpecificII">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>3</answersNumber>
 		<answer>
 			<first>na psy</first>
@@ -33,7 +30,6 @@
 		<property>familyAllergyType</property>
 	</question>
 	<question id="age">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>3</answersNumber>
 		<answer>
 			<first>poniżej 25</first>
@@ -44,7 +40,6 @@
 		<property>age</property>
 	</question>
 	<question id="timeRequirements">
-		<aboutPet>tak</aboutPet>
 		<answersNumber>3</answersNumber>
 		<answer>
 			<first>poniżej 0.5</first>
@@ -55,7 +50,6 @@
 		<property>timeRequirements</property>
 	</question>
 	<question id="family">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>2</answersNumber>
 		<answer>
 			<first>tak</first>
@@ -65,7 +59,6 @@
 		<property>family</property>
 	</question>
 	<question id="childSubstitute">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>2</answersNumber>
 		<answer>
 			<first>tak</first>
@@ -75,7 +68,6 @@
 		<property>childSubstitute</property>
 	</question>
 	<question id="timeAtHome">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>2</answersNumber>
 		<answer>
 			<first>tak</first>
@@ -85,7 +77,6 @@
 		<property>timeAtHome</property>
 	</question>
 	<question id="familyAllergy">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>2</answersNumber>
 		<answer>
 			<first>tak</first>
@@ -95,7 +86,6 @@
 		<property>familyAllergy</property>
 	</question>
 	<question id="children">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>2</answersNumber>
 		<answer>
 			<first>tak</first>
@@ -105,7 +95,6 @@
 		<property>children</property>
 	</question>
 	<question id="childrenAge">
-		<aboutPet>tak</aboutPet>
 		<answersNumber>3</answersNumber>
 		<answer>
 			<first>0-7</first>
@@ -116,7 +105,6 @@
 		<property>childrenAge</property>
 	</question>
 	<question id="otherAnimals">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>2</answersNumber>
 		<answer>
 			<first>tak</first>
@@ -126,7 +114,6 @@
 		<property>otherAnimals</property>
 	</question>
 	<question id="otherAnimalsSpecific">
-		<aboutPet>tak</aboutPet>
 		<answersNumber>4</answersNumber>
 		<answer>
 			<first>psy</first>
@@ -138,7 +125,6 @@
 		<property>otherAnimalsFriendliness</property>
 	</question>
 	<question id="cost">
-		<aboutPet>tak</aboutPet>
 		<answersNumber>3</answersNumber>
 		<answer>
 			<first>jak najniższy</first>
@@ -149,7 +135,6 @@
 		<property>cost</property>
 	</question>
 	<question id="lifeExpectancy">
-		<aboutPet>tak</aboutPet>
 		<answersNumber>3</answersNumber>
 		<answer>
 			<first>poniżej 12</first>
@@ -160,7 +145,6 @@
 		<property>lifeExpectancy</property>
 	</question>
 	<question id="animalTraits">
-		<aboutPet>tak</aboutPet>
 		<answersNumber>3</answersNumber>
 		<answer>
 			<first>towarzyskie</first>
@@ -171,7 +155,6 @@
 		<property>personality</property>
 	</question>
 	<question id="activity">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>3</answersNumber>
 		<answer>
 			<first>niska</first>
@@ -182,7 +165,6 @@
 		<property>activity</property>
 	</question>
 	<question id="home">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>2</answersNumber>
 		<answer>
 			<first>w domu jednorodzinnym</first>
@@ -192,7 +174,6 @@
 		<property>homeType</property>
 	</question>
 	<question id="homeSurroundingsHouse">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>2</answersNumber>
 		<answer>
 			<first>tak</first>
@@ -202,7 +183,6 @@
 		<property>homeSurroundingsHouse</property>
 	</question>
 	<question id="homeSurroundingsFlat">
-		<aboutPet>nie</aboutPet>
 		<answersNumber>2</answersNumber>
 		<answer>
 			<first>tak</first>
@@ -210,5 +190,88 @@
                 </answer>
 		<questionText>Czy w pobliżu twojego mieszkania znajdują się tereny zielone?</questionText>
 		<property>homeSurroundingsFlat</property>
-	</question>		
+	</question>
+	<question id="inteligence">
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>bez znaczenia</second>
+                </answer>
+		<questionText>Czy zwierzę powinno być inteligentne?</questionText>
+		<property>inteligence</property>
+	</question>
+	<question id="space">
+		<answersNumber>3</answersNumber>
+		<answer>
+			<first>mało</first>
+			<second>średnio</second>
+			<third>dużo</third>
+                </answer>
+		<questionText>Ile posiadasz przestrzeni w mieszkaniu?</questionText>
+		<property>space</property>
+	</question>
+	<question id="lifestyle">
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>w dzień</first>
+			<second>w nocy</second>
+                </answer>
+		<questionText>O jakiej porze doby jesteś aktywny?</questionText>
+		<property>lifestyle</property>
+	</question>
+	<question id="defense">
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>nie</second>
+                </answer>
+		<questionText>Czy chciałbyś żeby zwierzę broniło Twojej posesji?</questionText>
+		<property>defense</property>
+	</question>
+	<question id="hunting">
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>nie</second>
+                </answer>
+		<questionText>Czy chciałbyś żeby zwierzę towarzyszyło Ci w polowaniu?</questionText>
+		<property>hunting</property>
+	</question>
+	<question id="appearance">
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>nie</second>
+                </answer>
+		<questionText>Czy wygląd zwierzęcia jest dla Ciebie istonty?</questionText>
+		<property>appearance</property>
+	</question>
+	<question id="odour">
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>tak</first>
+			<second>nie</second>
+                </answer>
+		<questionText>Czy przeszkadza ci nieprzyjemny zapach zwierzęcia?</questionText>
+		<property>odour</property>
+	</question>
+	<question id="animalActivity">
+		<answersNumber>3</answersNumber>
+		<answer>
+			<first>spokojne</first>
+			<second>żywiołowe</second>
+			<third>bez znaczenia</third>
+                </answer>
+		<questionText>Jak energetyczne powinno być zwierzę?</questionText>
+		<property>animalActivity</property>
+	</question>
+	<question id="fur">
+		<answersNumber>2</answersNumber>
+		<answer>
+			<first>krótka</first>
+			<second>długa</second>
+                </answer>
+		<questionText>Jaką sierść zwierzęcia preferujesz?</questionText>
+		<property>fur</property>
+	</question>					
 </questions>

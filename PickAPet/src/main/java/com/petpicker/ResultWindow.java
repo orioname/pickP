@@ -12,6 +12,9 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.BoxLayout;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 
 public class ResultWindow extends JFrame {
 
@@ -48,11 +51,11 @@ public class ResultWindow extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		setLocationRelativeTo(null);
-		contentPane.setLayout(null);
+		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(5, 5, 440, 25);
 		contentPane.add(panel);
+		panel.setLayout(new BorderLayout(0, 0));
 		
 		JTextArea resultText = new JTextArea();
 		resultText.setLineWrap(true);
@@ -62,28 +65,18 @@ public class ResultWindow extends JFrame {
 		panel.add(resultText);
 		
 		ImageIcon background = new ImageIcon("imagePath");
-		JLabel label = new JLabel();
-		label.setBounds(5, 30, 440, 230);
-		label.setIcon(background);
-		
-		//ImagePanel panel_1 = new ImagePanel(imagePath);
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(5, 30, 440, 230);
-		panel_1.setLayout(null);
-		panel_1.add(label);
-		contentPane.add(panel_1);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(5, 260, 440, 35);
-		contentPane.add(panel_2);
+		contentPane.add(panel_2, BorderLayout.SOUTH);
+		panel_2.setLayout(new BorderLayout(0, 0));
 		
 		JButton ok = new JButton("ok");
+		panel_2.add(ok, BorderLayout.NORTH);
 		ok.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
 			}
 		});
-		panel_2.add(ok);
 	}
 
 }

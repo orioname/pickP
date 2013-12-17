@@ -1,7 +1,7 @@
 package com.petpicker
  
  rule "dogPossible"
- 	no-loop
+ 	salience 100
  	when
  		not (exists( (Property(type=="allergyType" && value=="na psy"))))
  		not (exists( (Property(type=="familyAllergyType" && value=="na psy"))))
@@ -11,6 +11,7 @@ package com.petpicker
  end
  
   rule "catPossible"
+  	salience 100
  	when
  		not (exists( (Property(type=="allergyType" && value=="na koty"))))
  		not (exists( (Property(type=="familyAllergyType" && value=="na koty"))))
@@ -20,6 +21,7 @@ package com.petpicker
  end
  
    rule "furPossible"
+    salience 100
  	when
  		not (exists( (Property(type=="allergyType" && value=="na większość zwierząt z sierścią"))))
  		not (exists( (Property(type=="familyAllergyType" && value=="na większość zwierząt z sierścią"))))
@@ -27,5 +29,9 @@ package com.petpicker
  		insertLogical (new Property("furPossible", "tak"));
  		System.out.println("fur possible"); 	
  end
+ 
+
+
+
 
 

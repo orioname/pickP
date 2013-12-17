@@ -21,10 +21,12 @@ public class PickAPet {
             StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
             KnowledgeRuntimeLogger logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "PickAPet");
                                        
-            MainWindow mw = new MainWindow();
-            mw.frame.setVisible(true);
+            new MainWindow();
+            MainWindow.frame.setVisible(true);
                     
             ksession.fireAllRules();
+            
+            MainWindow.displayResults("Niestety, nie znaleziono zwierzęcia spełniającego twoje kryteria.", null);
             
             logger.close();
         } catch (Throwable t) {

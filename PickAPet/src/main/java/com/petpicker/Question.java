@@ -70,7 +70,7 @@ public class Question {
 								this.answers.add("");
 							}
 							
-							if (answersNumber <= 3){
+							if (answersNumber <= 4){
 								this.answers.set(0, eElement
 									.getElementsByTagName("first")
 									.item(0).getTextContent());
