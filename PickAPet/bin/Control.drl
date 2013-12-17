@@ -5,55 +5,31 @@ import java.util.ArrayList;
   import java.io.IOException;
   import java.io.InputStreamReader;
 
-
-rule "allergyGeneral"
-	salience 1
-    when
-		Person(allergy=="undefined")
-    then
-        MainWindow.setQuestion("allergy");   
-end
-
-
-rule "allergySpecificI"
-	salience 2
-	when
-		Person(allergy=="tak" && allergyType=="undefined" && family=="undefined")
-	then
-		MainWindow.setQuestion("allergyType");
-end
-
-rule "allergySpecificII"
-	salience 3
-	when
-		Person(familyAllergyType=="undefined" && familyAllergy=="tak")
-	then
-		MainWindow.setQuestion("allergySpecificII");
-end
-
 rule "age"
-	salience -1
     when
-		Person(age=="undefined")
-		Pet(timeRequirements!="undefined")
     then
     	MainWindow.setQuestion("age");
 end
 
-
-rule "timeRequirements"
-	salience -1
+rule "allergyGeneral"
     when
-		Pet(timeRequirements=="undefined")
+        Property(type=="age")
     then
-    	MainWindow.setQuestion("timeRequirements");
+        MainWindow.setQuestion("allergy"); 
+end
 
+
+rule "allergySpecificI"
+	when
+		Property(type=="allergy" && value=="tak")
+	then
+		MainWindow.setQuestion("allergyType");
 end
 
 rule "family"
-	salience 4
     when
-		Person(family=="undefined" && allergy!="undefined")
+    	(or Property(type=="allergy" && value=="nie")
+    		Property(type=="allergyType"))
     then
     	MainWindow.setQuestion("family");
 end
@@ -61,10 +37,53 @@ end
 rule "childSubstitute"
 	salience 4
     when
-		Person(childSubstitute=="undefined" && allergy!="undefined")
+		Property(type=="family" && value=="nie")
     then
     	MainWindow.setQuestion("childSubstitute");
 end
+
+rule "allergySpecificII"
+	when
+		Property(type=="familyAllergy" && value=="tak")
+	then
+		MainWindow.setQuestion("allergySpecificII");
+end
+
+rule "familyAllergy"
+    when
+		Property(type=="family" && value=="tak")
+		Property(type=="furPossible" && value == "tak")
+    then
+    	MainWindow.setQuestion("familyAllergy");
+end
+
+rule "children"
+    when
+		(or Property(type=="family" && value=="tak")
+			Property(type=="familyAllergyType"))
+    then
+    	MainWindow.setQuestion( "children");
+end
+
+rule "childrenAge"
+    when
+		Property(type=="children" && value=="tak")
+    then
+    	MainWindow.setQuestion("childrenAge");
+end
+
+/*
+
+rule "timeRequirements"
+	salience 20
+    when
+		Pet(timeRequirements=="undefined")
+    then
+    	MainWindow.setQuestion("timeRequirements");
+
+end
+
+
 
 rule "timeAtHome"
 	salience 4
@@ -74,13 +93,7 @@ rule "timeAtHome"
     	MainWindow.setQuestion("timeAtHome");
 end
 
-rule "familyAllergy"
-	salience 5
-    when
-		Person(family=="tak" && familyAllergy=="undefined")
-    then
-    	MainWindow.setQuestion("familyAllergy");
-end
+
 
 rule "children"
 	salience 6
@@ -176,6 +189,6 @@ rule "homeSurroundingsFlat"
 		Person (homeType=="w mieszkaniu")
 	then
 		    	MainWindow.setQuestion("homeSurroundingsFlat");
-end
+end */
 	
 

@@ -17,8 +17,6 @@ import java.io.File;
  */
 public class Question {
 
-	private boolean answered;
-	private boolean aboutPet;
 	private String questionText;
 	String property;
 	ArrayList<String> answers;
@@ -26,17 +24,13 @@ public class Question {
 
 	public Question() {
 
-		answered = false;
-		aboutPet = false;
 		questionText = "";
 		property = "";
 		answers = null;
 	}
 
-	public Question(boolean ifAnimal, String questionText, String property,
+	public Question(String questionText, String property,
 			ArrayList<String> answers) {
-		answered = false;
-		this.aboutPet = ifAnimal;
 		this.questionText = questionText;
 		this.property = property;
 		this.answers = answers;
@@ -103,12 +97,6 @@ public class Question {
 							this.property = eElement
 									.getElementsByTagName("property").item(0)
 									.getTextContent();
-							if (eElement.getElementsByTagName("aboutPet")
-									.item(0).getTextContent().equals("tak")) {
-								this.aboutPet = true;
-							} else {
-								this.aboutPet = false;
-							}
 						
 						break;
 					}
@@ -120,37 +108,11 @@ public class Question {
 	}
 
 	public Question(Question question) {
-		this.answered = question.answered;
-		this.aboutPet = question.aboutPet;
 		this.questionText = question.questionText;
 		this.property = question.property;
 		for (String sourceAnswers : question.answers) {
 			answers.add(sourceAnswers);
 		}
-	}
-
-	public void updatePet(Pet pet, int selected) {
-		pet.setProperty(this.property, answers.get(selected));
-	}
-
-	public void updatePerson(Person person, int selected) {
-		person.setProperty(this.property, answers.get(selected));
-	}
-
-	public boolean isAnswered() {
-		return answered;
-	}
-
-	public void setAnswered(boolean answered) {
-		this.answered = answered;
-	}
-
-	public boolean isAboutPet() {
-		return aboutPet;
-	}
-
-	public void setAboutPet(boolean aboutPet) {
-		this.aboutPet = aboutPet;
 	}
 
 	public String getQuestionText() {
@@ -167,6 +129,10 @@ public class Question {
 
 	public void setAnswers(ArrayList<String> answers) {
 		this.answers = answers;
+	}
+	
+	public String getProperty(){
+		return this.property;
 	}
 
 }

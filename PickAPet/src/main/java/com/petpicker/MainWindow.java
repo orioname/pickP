@@ -15,14 +15,10 @@ import java.awt.Color;
 
 import javax.swing.JRadioButton;
 
-import org.drools.runtime.StatefulKnowledgeSession;
-
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
-
-import org.drools.runtime.rule.FactHandle;
 
 public class MainWindow {
 
@@ -32,19 +28,19 @@ public class MainWindow {
 	private JTextArea questionText ;
 	JPanel optionsPanel;
 	JPanel buttonPanel;
-	private Question question = new Question(false, "Witaj!", "", null);
-	private static Question newQuestion = new Question(false, "Witaj!", "", null);
+	private Question question = new Question("Witaj!", "", null);
+	private static Question newQuestion = new Question("Witaj!", "", null);
 	 
 	/**
 	 * Create the application.
 	 */
-	public MainWindow(StatefulKnowledgeSession ksession, Pet pet, FactHandle petHandle, Person person, FactHandle personHandle) {
-		initialize(ksession, pet, petHandle, person, personHandle);
+	public MainWindow() {
+		initialize();
 	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(final StatefulKnowledgeSession ksession, final Pet pet, final FactHandle petHandle, final Person person, final FactHandle personHandle ) {
+	private void initialize() {
 		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

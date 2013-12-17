@@ -11,14 +11,9 @@ import org.drools.io.ResourceFactory;
 import org.drools.logger.KnowledgeRuntimeLogger;
 import org.drools.logger.KnowledgeRuntimeLoggerFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
-import org.drools.runtime.rule.FactHandle;
 
 public class PickAPet {
 
-	private static Pet pet;
-	private static Person person;
-	static FactHandle petHandle;
-	static FactHandle personHandle;
 	static StatefulKnowledgeSession ksession;
 	
     public static final void main(String[] args) {
@@ -27,14 +22,8 @@ public class PickAPet {
             KnowledgeBase kbase = readKnowledgeBase();
             ksession = kbase.newStatefulKnowledgeSession();
             KnowledgeRuntimeLogger logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "PickAPet");
-            
-            pet = new Pet();
-            person = new Person();
-        	
-            petHandle = ksession.insert(pet);
-            personHandle = ksession.insert(person);
-            
-            MainWindow mw = new MainWindow(ksession, pet, petHandle, person, personHandle);
+                        
+            MainWindow mw = new MainWindow();
             mw.frame.setVisible(true);
                
             ksession.fireAllRules();
@@ -62,16 +51,9 @@ public class PickAPet {
     }
     
 	public static void updateKnowledge(Question question, int selectedAnswer){
-		if (question.isAboutPet())
-		{
-			question.updatePet(pet, selectedAnswer);
-			ksession.update(petHandle, pet);
-		}
-		else{
-			question.updatePerson(person, selectedAnswer);
-			ksession.update(personHandle, person);
-		}
+		ksession.insert(new Property(question.getProperty(), question.getAnswers().get(selectedAnswer)));
+		System.out.println("Property " + question.getProperty() + " with value " + question.getAnswers().get(selectedAnswer) + " inserted.");
 		ksession.fireAllRules();
-	}
+	} 
 
 }

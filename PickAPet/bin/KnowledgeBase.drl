@@ -1,21 +1,31 @@
 package com.petpicker
-
-rule "childFriendliness"
-	salience 6
-    when
-		Person(children=="tak" && childrenAge=="0-7")
-		a: Pet(childFriendliness=="undefined")
-    then
-    	modify (a) {setChildFriendliness("tak")};
-end
-
-/*
-rule "result1"
-	when
-		Person(family=="nie") 
-	then
-	    MainWindow.displayResults("Gratulacje! Oto twój wybór", "path");
-	end
- */
+ 
+ rule "dogPossible"
+ 	no-loop
+ 	when
+ 		not (exists( (Property(type=="allergyType" && value=="na psy"))))
+ 		not (exists( (Property(type=="familyAllergyType" && value=="na psy"))))
+ 	then
+ 		insertLogical (new Property("dogPossible", "tak"));
+ 		System.out.println("dog possible"); 	
+ end
+ 
+  rule "catPossible"
+ 	when
+ 		not (exists( (Property(type=="allergyType" && value=="na koty"))))
+ 		not (exists( (Property(type=="familyAllergyType" && value=="na koty"))))
+ 	then
+ 		insertLogical (new Property("catPossible", "tak"));
+ 		System.out.println("cat possible"); 	
+ end
+ 
+   rule "furPossible"
+ 	when
+ 		not (exists( (Property(type=="allergyType" && value=="na większość zwierząt z sierścią"))))
+ 		not (exists( (Property(type=="familyAllergyType" && value=="na większość zwierząt z sierścią"))))
+ 	then
+ 		insertLogical (new Property("furPossible", "tak"));
+ 		System.out.println("fur possible"); 	
+ end
 
 
