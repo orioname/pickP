@@ -26,7 +26,7 @@ public class PickAPet {
                     
             ksession.fireAllRules();
             
-            MainWindow.displayResults("Niestety, nie znaleziono zwierzęcia spełniającego twoje kryteria.", null);
+            MainWindow.displayResults("Niestety, nie istnieje zwierzę spełniające twoje potrzeby.", null);
             
             logger.close();
         } catch (Throwable t) {

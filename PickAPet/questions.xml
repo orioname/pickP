@@ -135,11 +135,10 @@
 		<property>cost</property>
 	</question>
 	<question id="lifeExpectancy">
-		<answersNumber>3</answersNumber>
+		<answersNumber>2</answersNumber>
 		<answer>
 			<first>poniżej 12</first>
-			<second>12-16</second>
-			<third>powyżej 16</third>
+			<second>powyżej 12</second>
                 </answer>
 		<questionText>Jaka powinna być średnia długość życia zwierzęcia?</questionText>
 		<property>lifeExpectancy</property>

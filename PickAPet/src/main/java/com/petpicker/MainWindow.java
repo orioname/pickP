@@ -30,7 +30,8 @@ public class MainWindow {
         JPanel buttonPanel;
         private static Question question = new Question("Witaj!", "", null);
         private static Question newQuestion = new Question("Witaj!", "", null);
-        private static boolean clicked = false; 
+        private static boolean clicked = false;
+        private static boolean found = false;
         /**
          * Create the application.
          */
@@ -135,8 +136,12 @@ public class MainWindow {
         }
         
         public static void displayResults(String result, String imagePath){
-                ResultWindow rw = new ResultWindow(result, imagePath);
+            if(!found){
+            	ResultWindow rw = new ResultWindow(result, imagePath);
                 rw.setVisible(true);
+            }
+        	
+            found = true;
         }
         
         private static void setNewQuestion(){

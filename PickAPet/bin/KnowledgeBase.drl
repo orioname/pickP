@@ -1,37 +1,182 @@
 package com.petpicker
  
- rule "dogPossible"
- 	salience 100
+ rule "chihuahua długowlosa"
+ 	salience 150
  	when
- 		not (exists( (Property(type=="allergyType" && value=="na psy"))))
- 		not (exists( (Property(type=="familyAllergyType" && value=="na psy"))))
- 	then
- 		insertLogical (new Property("dogPossible", "tak"));
- 		System.out.println("dog possible"); 	
+ 		Property(type=="age" && value=="powyżej 60")
+ 		Property(type=="childSubstitute" && value=="tak")
+ 		Property(type=="dogPossible" && value=="tak")
+ 		Property(type=="otherAnimals" && value=="nie")
+ 		Property(type=="fur" && value=="długa")
+ 	then            
+        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Chihuahua długowłosa.", null);
  end
  
-  rule "catPossible"
-  	salience 100
+  rule "kot birmański"
+ 	salience 150
  	when
- 		not (exists( (Property(type=="allergyType" && value=="na koty"))))
- 		not (exists( (Property(type=="familyAllergyType" && value=="na koty"))))
- 	then
- 		insertLogical (new Property("catPossible", "tak"));
- 		System.out.println("cat possible"); 	
+ 		Property(type=="age" && value=="powyżej 60")
+ 		Property(type=="childSubstitute" && value=="tak")
+ 		Property(type=="catPossible" && value=="tak")
+ 		Property(type=="otherAnimalsFriendliness" && value=="koty")
+ 		Property(type=="fur" && value=="długa")
+ 	then            
+        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest kot Birmański.", null);
  end
  
-   rule "furPossible"
-    salience 100
+   rule "kot brytyjski"
+ 	salience 150
  	when
- 		not (exists( (Property(type=="allergyType" && value=="na większość zwierząt z sierścią"))))
- 		not (exists( (Property(type=="familyAllergyType" && value=="na większość zwierząt z sierścią"))))
- 	then
- 		insertLogical (new Property("furPossible", "tak"));
- 		System.out.println("fur possible"); 	
+ 		Property(type=="age" && value=="powyżej 60")
+ 		Property(type=="childSubstitute" && value=="tak")
+ 		Property(type=="catPossible" && value=="tak")
+ 		Property(type=="otherAnimalsFriendliness" && value=="koty")
+ 		Property(type=="fur" && value=="krótka")
+ 	then            
+        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest kot Brytyjski krótkowłosy.", null);
  end
  
+  rule "chihuahua krotkowlosa"
+ 	salience 150
+ 	when
+ 		Property(type=="age" && value=="powyżej 60")
+ 		Property(type=="childSubstitute" && value=="tak")
+ 		Property(type=="dogPossible" && value=="tak")
+ 		Property(type=="otherAnimals" && value=="nie")
+ 		Property(type=="fur" && value=="krótka")
+ 	then            
+        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Chihuahua krótkowłosa.", null);
+ end	
+ 
+  rule "Cockapoo"
+ 	salience 150
+ 	when
+ 		Property(type=="age" && value=="powyżej 60")
+ 		Property(type=="childSubstitute" && value=="tak")
+ 		Property(type=="dogPossible" && value=="tak")
+ 		Property(type=="otherAnimals" && value=="tak")
+ 		Property(type=="otherAnimalsFriendliness" && value=="psy")
+ 		Property(type=="fur" && value=="długa")
+ 	then            
+        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Cockapoo.", null);
+ end
+ 
+   rule "Maltańczyk"
+ 	salience 150
+ 	when
+ 		Property(type=="age" && value=="powyżej 60")
+ 		Property(type=="childSubstitute" && value=="tak")
+ 		Property(type=="dogPossible" && value=="tak")
+ 		Property(type=="otherAnimals" && value=="tak")
+ 		(or (Property(type=="otherAnimalsFriendliness" && value=="psy"))
+ 		    (Property(type=="otherAnimalsFriendliness" && value=="koty"))
+ 		    (Property(type=="otherAnimalsFriendliness" && value=="psy i koty"))
+ 		 )
+ 		Property(type=="fur" && value=="długa")
+ 	then            
+        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Maltańczyk.", null);
+ end
+ 
+    rule "Buldog francuski"
+ 	salience 150
+ 	when
+ 		Property(type=="age" && value=="powyżej 60")
+ 		Property(type=="childSubstitute" && value=="tak")
+ 		Property(type=="dogPossible" && value=="tak")
+ 		Property(type=="otherAnimals" && value=="tak")
+ 		(or (Property(type=="otherAnimalsFriendliness" && value=="psy"))
+ 		    (Property(type=="otherAnimalsFriendliness" && value=="koty"))
+ 		    (Property(type=="otherAnimalsFriendliness" && value=="psy i koty"))
+ 		 )
+ 		Property(type=="fur" && value=="krótka")
+ 	then            
+        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Buldog francuski.", null);
+ end
+ 
+  rule "cocker-spaniel"
+ 	salience 150
+ 	when
+ 		Property(type=="age" && value!="powyżej 60")
+ 		Property(type=="childSubstitute" && value=="tak")
+ 		Property(type=="dogPossible" && value=="tak")
+ 		Property(type=="otherAnimals" && value=="nie")
+ 		Property(type=="fur" && value=="długa")
+ 		Property(type=="inteligence" && value=="bez znaczenia")
+ 		(or (Property(type=="activity" && value=="średnia"))
+ 		    (Property(type=="activity" && value=="wysoka"))
+ 		)
+ 	then            
+        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Cocker-spaniel.", null);
+ end
+ 
+   rule "beagle"
+ 	salience 150
+ 	when
+ 		Property(type=="age" && value!="powyżej 60")
+ 		Property(type=="childSubstitute" && value=="tak")
+ 		Property(type=="dogPossible" && value=="tak")
+ 		Property(type=="otherAnimals" && value=="nie")
+ 		Property(type=="fur" && value=="krótka")
+ 		Property(type=="inteligence" && value=="tak")
+ 		(or (Property(type=="activity" && value=="średnia"))
+ 		    (Property(type=="activity" && value=="wysoka"))
+ 		)
+ 	then            
+        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Beagle.", null);
+ end
+ 
+    rule "Pinczer miniaturowy"
+ 	salience 150
+ 	when
+ 		Property(type=="age" && value!="powyżej 60")
+ 		Property(type=="childSubstitute" && value=="tak")
+ 		Property(type=="dogPossible" && value=="tak")
+ 		Property(type=="otherAnimals" && value=="nie")
+ 		Property(type=="fur" && value=="krótka")
+ 		Property(type=="inteligence" && value=="bez znaczenia")
+ 		(or (Property(type=="activity" && value=="średnia"))
+ 		    (Property(type=="activity" && value=="wysoka"))
+ 		)
+ 	then            
+        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Pinczer miniaturowy.", null);
+ end
 
+  rule "setter irlandzki"
+ 	salience 150
+ 	when
+ 		Property(type=="age" && value!="powyżej 60")
+ 		Property(type=="childSubstitute" && value=="tak")
+ 		Property(type=="dogPossible" && value=="tak")
+ 		(or (Property(type=="otherAnimals" && value=="nie"))
+ 		     (Property(type=="otherAnimalsFriendliness" && value=="psy"))
+ 		)
+ 		Property(type=="fur" && value=="długa")
+ 		Property(type=="inteligence" && value=="tak")
+ 		(or (Property(type=="activity" && value=="średnia"))
+ 		    (Property(type=="activity" && value=="wysoka"))
+ 		)
+ 	then            
+        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Setter irlandzki.", null);
+ end
+ 
+   rule "dalmatyńczyk"
+ 	salience 150
+ 	when
+ 		Property(type=="age" && value!="powyżej 60")
+ 		Property(type=="childSubstitute" && value=="tak")
+ 		Property(type=="dogPossible" && value=="tak")
+ 		(or (Property(type=="otherAnimals" && value=="nie"))
+ 		     (Property(type=="otherAnimalsFriendliness" && value=="psy"))
+ 		)
+ 		Property(type=="fur" && value=="krótka")
+ 		Property(type=="inteligence" && value=="bez znaczenia")
+ 		(or (Property(type=="activity" && value=="średnia"))
+ 		    (Property(type=="activity" && value=="wysoka"))
+ 		)
+ 	then            
+        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Dalmatyńczyk.", null);
+ end
 
-
+//koty
 
 
