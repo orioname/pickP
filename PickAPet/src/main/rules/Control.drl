@@ -5,15 +5,6 @@ import java.util.ArrayList;
   import java.io.IOException;
   import java.io.InputStreamReader;
 
-rule "age"
-	salience 101
-    when
-    	not (exists (Property(type=="age")))
-    then
-    	Property age = MainWindow.setQuestion("age");
-    	insert (new Property(age.getType(), age.getValue()));
-end
-
 rule "allergyGeneral"
 	salience 100
     when
@@ -44,12 +35,15 @@ rule "family"
 end
 
 rule "childSubstitute"
-	salience 99
+	salience 97
     when
       	not (exists (Property(type=="childSubstitute")))  
 		(or (Property(type=="family" && value=="nie"))
 			(Property(type=="children" && value=="nie"))
 		
+		)
+		(or (Property (type=="dogPossible" && value=="tak"))
+			(Property (type=="catPossible" && value=="tak"))
 		)
     then
     	Property childSubstitute = MainWindow.setQuestion("childSubstitute");
@@ -71,7 +65,7 @@ rule "familyAllergy"
     when
         not (exists (Property(type=="familyAllergy"))) 
 		Property(type=="family" && value=="tak")
-		Property(type=="furPossible" && value == "tak")
+		not (exists( (Property(type=="allergyType" && value=="na większość zwierząt z sierścią"))))
     then
     	Property familyAllergy = MainWindow.setQuestion("familyAllergy");
     	insert (new Property(familyAllergy.getType(), familyAllergy.getValue()));
@@ -101,24 +95,24 @@ rule "timeRequirements"
 	salience 80
     when
         not (exists (Property(type=="timeRequirements")))
-        Property(type=="childSubstitute" && value=="nie") 
+	 		not (exists (Property(type=="childSubstitute" && value=="tak"))) 
     then
     	Property timeReq = MainWindow.setQuestion("timeRequirements");
 		insert (new Property(timeReq.getType(), timeReq.getValue()));
 end
-
+/*
 rule "cost"
 	salience 80
 	when
 			not (exists (Property(type=="cost")))
-			Property(type=="childSubstitute" && value=="nie") 
+	 		not (exists (Property(type=="childSubstitute" && value=="tak"))) 
 	then
 	    	Property cost = MainWindow.setQuestion("cost");
 	    	insert (new Property(cost.getType(), cost.getValue()));
 end 
-
+*/
 rule "lifeExpectancy"
-	salience 80
+	salience 98
 	when
 			not (exists (Property(type=="lifeExpectancy"))) 
 	then
@@ -130,24 +124,42 @@ rule "animalTraits"
 	salience 80
 	when
 	 		not (exists (Property(type=="personality")))
-	 		Property(type=="childSubstitute" && value=="nie") 
+	 		not (exists (Property(type=="childSubstitute" && value=="tak")))
 	then
 	    	Property traits = MainWindow.setQuestion("animalTraits");
 	    	insert (new Property(traits.getType(), traits.getValue()));
 end 
 
 rule "timeAtHome"
-	salience 80
+	salience 79
     when
         not (exists (Property(type=="timeAtHome"))) 
 		Property(type=="family" && value=="nie")
 		not (exists (Property(type=="childSubstitute" && value=="tak")))
+		(or (Property (type=="dogPossible" && value=="tak"))
+			(Property (type=="catPossible" && value=="tak"))
+		)
     then
     	Property time = MainWindow.setQuestion("timeAtHome");
     	insert (new Property(time.getType(), time.getValue()));
 end
 
+rule "space"
+	salience 80
+	when
+		not (exists (Property(type=="space")))
+		exists (Property(type=="homeType"))
+		Property(type=="homeType" && value=="w mieszkaniu")
+		(or (Property (type=="dogPossible" && value=="tak"))
+			(Property (type=="catPossible" && value=="tak"))
+		)
+	then
+		Property space = MainWindow.setQuestion("space");
+		insert (new Property(space.getType(), space.getValue()));
+end	
+
 rule "otherAnimals"
+	salience 91
     when
 		(or (Property (type=="dogPossible" && value=="tak"))
 			(Property (type=="catPossible" && value=="tak"))
@@ -168,10 +180,10 @@ rule "otherAnimalsSpecific"
 end
 
 rule "activity"
+	salience 90
 	when
-		not (exists (Property(type=="activity"))) 
-		Property(type=="dogPossible" && value=="tak")
-		not (exists (Property(type=="age" && value=="powyżej 60")))
+		not (exists (Property(type=="activity")))
+		Property(type=="dogPossible" && value=="tak") 
 	then
 		Property activity = MainWindow.setQuestion("activity");
 		insert (new Property(activity.getType(), activity.getValue()));
@@ -205,7 +217,7 @@ rule "homeSurroundingsFlat"
 		Property hs = MainWindow.setQuestion("homeSurroundingsFlat");
 		insert (new Property(hs.getType(), hs.getValue()));
 end 
-
+/*
 rule "inteligence"
 	when
 		not (exists (Property(type=="inteligence")))
@@ -213,20 +225,16 @@ rule "inteligence"
 		Property inteligence = MainWindow.setQuestion("inteligence");
 		insert (new Property(inteligence.getType(), inteligence.getValue()));
 end	
-
-rule "space"
-	when
-		not (exists (Property(type=="space")))
-		exists (Property(type=="homeType"))
-		Property(type=="homeType" && value=="w mieszkaniu")
-	then
-		Property space = MainWindow.setQuestion("space");
-		insert (new Property(space.getType(), space.getValue()));
-end	
+*/
 
 rule "lifestyle"
 	when
 		not (exists (Property(type=="lifestyle")))
+		Property(type=="dogPossible" && value=="nie")
+		Property(type=="catPossible" && value=="nie")
+		(or (Property(type=="timeRequirements" && value=="poniżej 0.5"))
+			(Property(type=="cost" && value=="jak najniższy"))
+		)
 	then
 		Property property = MainWindow.setQuestion("lifestyle");
 		insert (new Property(property.getType(), property.getValue()));
@@ -247,18 +255,10 @@ rule "hunting"
 	when
 		not (exists (Property(type=="hunting")))	
 		Property(type=="dogPossible" && value=="tak")
+		Property(type=="homeType" && value=="w domu jednorodzinnym")
 		not (exists (Property(type=="childSubstitute" && value=="tak")))
 	then
 		Property property = MainWindow.setQuestion("hunting");
-		insert (new Property(property.getType(), property.getValue()));
-end
-
-rule "apperance"
-	when
-		not (exists (Property(type=="appearance")))
-		Property(type=="dogPossible" && value=="nie")	
-	then
-		Property property = MainWindow.setQuestion("appearance");
 		insert (new Property(property.getType(), property.getValue()));
 end
 
@@ -267,6 +267,9 @@ rule "odour"
 		not (exists (Property(type=="odour")))
 		Property(type=="dogPossible" && value=="nie")
 		Property(type=="catPossible" && value=="nie")
+		(or (Property(type=="timeRequirements" && value=="poniżej 0.5"))
+			(Property(type=="cost" && value=="jak najniższy"))
+		)
 	then
 		Property property = MainWindow.setQuestion("odour");
 		insert (new Property(property.getType(), property.getValue()));
@@ -274,7 +277,10 @@ end
 
 rule "animalActivity"
 	when
-		not (exists (Property(type=="animalActivity")))	
+		not (exists (Property(type=="animalActivity")))
+		(or (Property(type=="dogPossible" && value=="tak"))
+			(Property(type=="catPossible" && value=="tak"))
+		)	
 	then
 		Property property = MainWindow.setQuestion("animalActivity");
 		insert (new Property(property.getType(), property.getValue()));
@@ -292,57 +298,58 @@ rule "fur"
 end
 
 rule "dogPossible"
- 	salience 100
+ 	salience 101
  	when
  		not (exists( (Property(type=="allergyType" && value=="na psy"))))
+ 		not (exists( (Property(type=="allergyType" && value=="na większość zwierząt z sierścią"))))
  		not (exists( (Property(type=="familyAllergyType" && value=="na psy"))))
  	then
- 		insertLogical (new Property("dogPossible", "tak"));
- 		System.out.println("dog possible"); 	
+ 		insert (new Property("dogPossible", "tak"));	
  end
  
   rule "catPossible"
-  	salience 100
+  	salience 101
  	when
  		not (exists( (Property(type=="allergyType" && value=="na koty"))))
+ 		not (exists( (Property(type=="allergyType" && value=="na większość zwierząt z sierścią"))))
  		not (exists( (Property(type=="familyAllergyType" && value=="na koty"))))
  	then
- 		insertLogical (new Property("catPossible", "tak"));
- 		System.out.println("cat possible"); 	
+ 		insert (new Property("catPossible", "tak"));
  end
- 
-   rule "furPossible"
-    salience 100
- 	when
- 		not (exists( (Property(type=="allergyType" && value=="na większość zwierząt z sierścią"))))
- 		not (exists( (Property(type=="familyAllergyType" && value=="na większość zwierząt z sierścią"))))
- 	then
- 		insertLogical (new Property("furPossible", "tak"));
- 		System.out.println("fur possible"); 	
- end
- 
+  
 rule "excludeDog"
-	salience 80
+	salience 101
 	when
 		dog: Property(type=="dogPossible" && value=="tak")
 		(or	(Property(type=="timeRequirements" && value=="poniżej 0.5"))
-			(Property(type=="cost" && value=="jak najniższy"))
 			(Property(type=="lifeExpectancy" && value=="poniżej 12"))
 			(Property(type=="timeAtHome" && value=="tak"))
 			(Property(type=="space" && value=="mało"))
 			(Property(type=="lifestyle" && value=="w nocy"))
+			(Property(type=="allergyType" && value=="na większość zwierząt z sierścią"))
+			(Property(type=="familyAllergyType" && value=="na większość zwierząt z sierścią"))
+			(Property(type=="allergyType" && value=="na psy"))
+			(Property(type=="familyAllergyType" && value=="na psy"))
+			(Property(type=="otherAnimal" && value=="koty"))
+			(Property(type=="personality" && value=="niezależne"))
+			(Property(type=="homeSurroundingsFlat" && value=="nie"))
 		)  
 	then
 		modify (dog) {setValue("nie")};
 end
 
 rule "excludeCat"
-	salience 80
+	salience 101
 	when
 		cat: Property(type=="catPossible" && value=="tak")
 		(or	(Property(type=="timeRequirements" && value=="poniżej 0.5"))
-			(Property(type=="cost" && value=="jak najniższy"))
 			(Property(type=="lifeExpectancy" && value=="poniżej 12"))
+			(Property(type=="allergyType" && value=="na większość zwierząt z sierścią"))
+			(Property(type=="familyAllergyType" && value=="na większość zwierząt z sierścią"))
+			(Property(type=="allergyType" && value=="na koty"))
+			(Property(type=="otherAnimal" && value=="psy"))
+			(Property(type=="familyAllergyType" && value=="na koty"))
+			(Property(type=="personality" && value=="towarzyskie"))
 		)  
 	then
 		modify (cat) {setValue("nie")};

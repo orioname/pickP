@@ -114,12 +114,11 @@
 		<property>otherAnimals</property>
 	</question>
 	<question id="otherAnimalsSpecific">
-		<answersNumber>4</answersNumber>
+		<answersNumber>3</answersNumber>
 		<answer>
 			<first>psy</first>
 			<second>koty</second>
 			<third>psy i koty</third>
-			<fourth>inne</fourth>
                 </answer>
 		<questionText>Jakie zwierzęta posiadasz?</questionText>
 		<property>otherAnimalsFriendliness</property>
