@@ -1,16 +1,5 @@
 package com.petpicker
  
- rule "chihuahua długowlosa"
- 	salience 150
- 	when
- 		Property(type=="childSubstitute" && value=="tak")
- 		Property(type=="dogPossible" && value=="tak")
- 		Property(type=="activity" && value=="wysoka")
- 		Property(type=="fur" && value=="długa")
- 	then            
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Chihuahua długowłosa.", null);
- end
- 
   rule "kot birmański"
  	salience 150
  	when
@@ -19,7 +8,7 @@ package com.petpicker
  		Property(type=="fur" && value=="długa")
  		Property(type=="activity" && value=="niska")
  	then            
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest kot Birmański.", null);
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest kot birmański.", "images/burma.jpg");
  end
  
    rule "kot brytyjski"
@@ -30,7 +19,7 @@ package com.petpicker
  		Property(type=="fur" && value=="krótka")
  		Property(type=="activity" && value=="niska")
  	then            
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest kot Brytyjski krótkowłosy.", null);
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest kot brytyjski krótkowłosy.", "images/british.jpg");
  end
  
   rule "chihuahua krotkowlosa"
@@ -39,9 +28,10 @@ package com.petpicker
  		Property(type=="childSubstitute" && value=="tak")
  		Property(type=="dogPossible" && value=="tak")
  		Property(type=="fur" && value=="krótka")
- 		Property(type=="activity" && value=="niska")
+ 		Property(type=="otherAnimals" && value=="nie")
+ 		Property(type=="activity" && value=="średnia")
  	then            
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Chihuahua krótkowłosa.", null);
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest chihuahua krótkowłosa.", "images/chihuahuaS.jpg");
  end	
  
   rule "Cockapoo"
@@ -50,9 +40,9 @@ package com.petpicker
  		Property(type=="childSubstitute" && value=="tak")
  		Property(type=="dogPossible" && value=="tak")
  		Property(type=="fur" && value=="długa")
- 		Property(type=="activity" && value=="niska")
+ 		Property(type=="activity" && value=="wysoka")
  	then            
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Cockapoo.", null);
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest cockapoo.", "images/kokapu.jpg");
  end
  
    rule "Maltańczyk"
@@ -61,9 +51,9 @@ package com.petpicker
  		Property(type=="childSubstitute" && value=="tak")
  		Property(type=="dogPossible" && value=="tak")
  		Property(type=="fur" && value=="długa")
- 		Property(type=="activity" && value=="niska")
+ 		Property(type=="activity" && value=="średnia")
  	then            
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Maltańczyk.", null);
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest maltańczyk.", "images/malta.jpg");
  end
  
     rule "Buldog francuski"
@@ -71,10 +61,11 @@ package com.petpicker
  	when
  		Property(type=="childSubstitute" && value=="tak")
  		Property(type=="dogPossible" && value=="tak")
+ 		Property(type=="otherAnimals" && value=="nie")
  		Property(type=="fur" && value=="krótka")
  		Property(type=="activity" && value=="niska")
  	then            
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Buldog francuski.", null);
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest buldog francuski.", "images/french.jpg");
  end
  
   rule "cocker-spaniel"
@@ -83,11 +74,12 @@ package com.petpicker
  		Property(type=="childSubstitute" && value=="tak")
  		Property(type=="dogPossible" && value=="tak")
  		Property(type=="fur" && value=="długa")
+ 		Property(type=="otherAnimals" && value=="tak")
  		(or (Property(type=="activity" && value=="średnia"))
  		    (Property(type=="activity" && value=="wysoka"))
  		)
  	then            
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Cocker-spaniel.", null);
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest cocker-spaniel.", "images/spaniel.jpg");
  end
  
    rule "beagle"
@@ -101,7 +93,7 @@ package com.petpicker
  		    (Property(type=="activity" && value=="wysoka"))
  		)
  	then            
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Beagle.", null);
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest beagle.", "images/beagle.jpg");
  end
  
     rule "Pinczer miniaturowy"
@@ -115,9 +107,21 @@ package com.petpicker
  		    (Property(type=="activity" && value=="wysoka"))
  		)
  	then            
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Pinczer miniaturowy.", null);
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest pinczer miniaturowy.", "images/pin.jpg");
  end
 //10
+
+ rule "chihuahua długowlosa"
+ 	salience 150
+ 	when
+ 		Property(type=="childSubstitute" && value=="tak")
+ 		Property(type=="dogPossible" && value=="tak")
+ 		Property(type=="activity" && value=="niska")
+ 		Property(type=="fur" && value=="długa")
+ 	then            
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest chihuahua długowłosa.", "images/chihuahua.jpg");
+ end
+ 
   rule "setter irlandzki"
  	salience 150
  	when
@@ -131,7 +135,7 @@ package com.petpicker
  		    (Property(type=="activity" && value=="wysoka"))
  		)
  	then            
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Setter irlandzki.", null);
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest setter irlandzki.", "images/irish.jpg");
  end
  
    rule "dalmatyńczyk"
@@ -147,7 +151,7 @@ package com.petpicker
  		    (Property(type=="activity" && value=="wysoka"))
  		)
  	then            
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Dalmatyńczyk.", null);
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest dalmatyńczyk.", "images/dalm.jpg");
  end
 
 rule "Fretka"
@@ -161,7 +165,7 @@ rule "Fretka"
 		Property(type=="lifestyle" && value=="w nocy")
 		Property(type=="odour" && value=="tak")
 	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Fretka.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest fretka.", "images/ferret.jpg");	
 end
 
 rule "Mysz"
@@ -172,10 +176,10 @@ rule "Mysz"
 		)
 		Property(type=="lifeExpectancy" && value=="poniżej 12")
 		Property(type=="timeRequirements" && value=="poniżej 0.5")
-		Property(type=="lifestyle" && value=="w nocy")
-		Property(type=="odour" && value=="tak")
+		Property(type=="lifestyle" && value=="w dzień")
+		Property(type=="odour" && value=="nie")
 	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Mysz.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest mysz.", "images/mouse.jpg");	
 end
 		
 rule "Chomik"
@@ -188,8 +192,9 @@ rule "Chomik"
 		Property(type=="lifeExpectancy" && value=="poniżej 12")
 		not (exists (Property(type=="children" && value=="0-7")))
 		Property(type=="lifestyle" && value=="w nocy")
+		Property(type=="odour" && value=="nie")
 	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Chomik.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest chomik.", "images/hamster.jpg");	
 end		
 
 rule "Szczur"
@@ -202,17 +207,17 @@ rule "Szczur"
 		Property(type=="timeRequirements" && value=="poniżej 0.5")
 		Property(type=="lifestyle" && value=="w nocy")
 	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Szczur.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest szczur.", "images/rat.jpg");	
 end	
 
-rule ""
+rule "Rybki"
 	salience 150
 	when
 		Property(type=="lifeExpectancy" && value=="poniżej 12")
 		Property(type=="timeRequirements" && value=="poniżej 0.5")
 		Property(type=="lifestyle" && value=="w dzień")
 	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem są  akwariowe.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem są rybki akwariowe.", "images/fish.jpg");	
 end	
 
 rule "Kanarek"
@@ -224,7 +229,7 @@ rule "Kanarek"
 		Property(type=="lifeExpectancy" && value=="powyżej 12")
 		Property(type=="timeRequirements" && value=="poniżej 0.5")
 	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Kanarek.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest kanarek.", "images/kanarek.jpg");	
 end	
 
 rule "Wąż"
@@ -242,24 +247,22 @@ rule "Wąż"
 			(Property(type=="familyAllergyType" && value=="na większość zwierząt z sierścią"))
 		)
 	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest wąż.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest wąż.", "images/snake.jpg");	
 end	
 
 rule "Jaszczurka"
 	salience 150
 	when
-		(or (Property(type=="personality" && value=="niezależne"))
+		(or (Property(type=="personality" && value=="towarzyskie"))
 			(Property(type=="personality" && value=="bez znaczenia"))
 		)
 		Property(type=="lifeExpectancy" && value=="powyżej 12")
 		Property(type=="timeRequirements" && value!="poniżej 0.5")
-		Property(type=="dogPossible" && value=="nie")
-		Property(type=="catPossible" && value=="nie")
 		(or (Property(type=="allergyType" && value=="na większość zwierząt z sierścią"))
 			(Property(type=="familyAllergyType" && value=="na większość zwierząt z sierścią"))
 		)
 	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest jaszczurka.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest jaszczurka.", "images/lizard.jpg");	
 end	
 //20
 rule "Żółw"
@@ -271,7 +274,7 @@ rule "Żółw"
 		Property(type=="lifeExpectancy" && value=="powyżej 12")
 		Property(type=="timeRequirements" && value=="poniżej 0.5")
 	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest żółw.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest żółw.", "images/turtle.jpg");	
 end
 
 rule "Labrador retriever"
@@ -283,7 +286,7 @@ rule "Labrador retriever"
  		Property(type=="homeSurroundingsHouse" && value=="tak")
  		Property(type=="children" && value=="tak")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Labrador retriever.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest labrador retriever.", "images/labrador.jpg");	
 end 	
 
 rule "Golden retriever"
@@ -295,7 +298,7 @@ rule "Golden retriever"
  		Property(type=="homeSurroundingsHouse" && value=="tak")
  		Property(type=="children" && value=="tak")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Golden retriever.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest golden retriever.", "images/golden.jpg");	
 end
 
 rule "Mastiff"
@@ -310,7 +313,7 @@ rule "Mastiff"
  			(Property(type=="family" && value=="nie"))
  		)
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest mastiff.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest mastiff.", "images/mastiff.jpg");	
 end 	
 
 rule "Bernardyn"
@@ -325,7 +328,7 @@ rule "Bernardyn"
  			(Property(type=="family" && value=="nie"))
  		)
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest bernardyn.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest bernardyn.", "images/bernardyn.jpg");	
 end
 
 rule "Berneński pies pasterski"
@@ -337,7 +340,7 @@ rule "Berneński pies pasterski"
  		Property(type=="homeSurroundingsHouse" && value=="tak")
  		Property(type=="children" && value=="tak")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest berneński pies pasterski.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest berneński pies pasterski.", "images/bernenczyk.jpg");	
 end
 
 rule "Weimaraner"
@@ -352,7 +355,7 @@ rule "Weimaraner"
  			(Property(type=="family" && value=="nie"))
  		)
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest weimaraner.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest weimaraner.", "images/weimar.jpg");	
 end 	
 
 rule "Husky"
@@ -367,7 +370,7 @@ rule "Husky"
  			(Property(type=="family" && value=="nie"))
  		)
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest syberyjski husky.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest syberyjski husky.", "images/husky.jpg");	
 end
 
 rule "Doberman"
@@ -379,7 +382,7 @@ rule "Doberman"
  		Property(type=="homeSurroundingsHouse" && value=="tak")
  		Property(type=="children" && value=="tak")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest doberman.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest doberman.", "images/doberman.jpg");	
 end 	
 
 //30
@@ -390,7 +393,7 @@ rule "Owczarek niemiecki"
  		Property(type=="defense" && value=="tak")
  		Property(type=="fur" && value=="długa")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest owczarek niemiecki.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest owczarek niemiecki.", "images/owczarek.jpg");	
 end
 
 rule "Rottweiler"
@@ -399,7 +402,7 @@ rule "Rottweiler"
  		Property(type=="defense" && value=="tak")
  		Property(type=="fur" && value=="krótka")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest owczarek rottweiler.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest owczarek rottweiler.", "images/rottw.jpg");	
 end
 
 rule "wyżeł szorstkowłosy"
@@ -408,7 +411,7 @@ rule "wyżeł szorstkowłosy"
  		Property(type=="hunting" && value=="tak")
  		Property(type=="fur" && value=="krótka")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest wyżeł szorstkowłosy.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest wyżeł szorstkowłosy.", "images/wyzel.jpg");	
 end
 
 rule "springer spaniel"
@@ -417,7 +420,7 @@ rule "springer spaniel"
  		Property(type=="hunting" && value=="tak")
  		Property(type=="fur" && value=="długa")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Springer Spaniel.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest springer Spaniel.", "images/springer.jpg");	
 end
 
 rule "Bull terrier"
@@ -429,7 +432,7 @@ rule "Bull terrier"
  		Property(type=="homeType" && value=="w mieszkaniu")
  		Property(type=="children" && value=="tak")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest bull terrier.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest bull terrier.", "images/bull.jpg");	
 end 	
 
 rule "Shih tzu"
@@ -441,7 +444,7 @@ rule "Shih tzu"
  		Property(type=="homeType" && value=="w mieszkaniu")
  		Property(type=="children" && value=="tak")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Shih tzu.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest shih tzu.", "images/shih.jpg");	
 end
 
 rule "Shar-pei"
@@ -456,7 +459,7 @@ rule "Shar-pei"
  			(Property(type=="family" && value=="nie"))
  		)
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest shar-pei.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest shar-pei.", "images/shar.jpg");	
 end 	
 
 rule "Pudel"
@@ -471,7 +474,7 @@ rule "Pudel"
  			(Property(type=="family" && value=="nie"))
  		)
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest pudel.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest pudel.", "images/pudel.jpg");	
 end
 
 rule "Pekińczyk"
@@ -483,7 +486,7 @@ rule "Pekińczyk"
  		Property(type=="homeType" && value=="w mieszkaniu")
  		Property(type=="children" && value=="tak")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest pekińczyk.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest pekińczyk.", "images/pekinczyk.jpg");	
 end
 
 //40
@@ -500,7 +503,7 @@ rule "Jack Russel Terrier"
  			(Property(type=="family" && value=="nie"))
  		)
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Jack Russel Terrier.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest jack russel terrier.", "images/jack.jpg");	
 end 	
 
 rule "Border collie"
@@ -515,7 +518,7 @@ rule "Border collie"
  			(Property(type=="family" && value=="nie"))
  		)
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest border collie.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest border collie.", "images/oborder.jpg");	
 end
 
 rule "Rat terrier"
@@ -527,7 +530,7 @@ rule "Rat terrier"
  		Property(type=="homeType" && value=="w mieszkaniu")
  		Property(type=="children" && value=="tak")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest rat terrier.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest rat terrier.", "images/ratT.jpg");	
 end   
 
 //
@@ -539,7 +542,7 @@ rule "Ragdoll"
  		Property(type=="fur" && value=="krótka")
  		Property(type=="children" && value=="tak")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Ragdoll.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest ragdoll.", "images/ragdoll.jpg");	
 end 	
 
 rule "Kot norweski"
@@ -550,7 +553,7 @@ rule "Kot norweski"
  		Property(type=="fur" && value=="długa")
  		Property(type=="children" && value=="tak")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest kot norweski.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest kot norweski.", "images/norweski.jpg");	
 end
 
 rule "Kot perski"
@@ -564,7 +567,7 @@ rule "Kot perski"
  			(Property(type=="family" && value=="nie"))
  		)
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest kot perski.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest kot perski.", "images/pers.jpg");	
 end 	
 
 rule "Kot syjamski"
@@ -578,7 +581,7 @@ rule "Kot syjamski"
  			(Property(type=="family" && value=="nie"))
  		)
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest kot syjamski.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest kot syjamski.", "images/syjamski.jpg");	
 end
 
 rule "Maine coon"
@@ -589,7 +592,7 @@ rule "Maine coon"
  		Property(type=="fur" && value=="długa")
  		Property(type=="children" && value=="tak")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest Maine Coon.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest maine coon.", "images/maine.jpg");	
 end
 
 rule "Ocicat"
@@ -603,7 +606,7 @@ rule "Ocicat"
  			(Property(type=="family" && value=="nie"))
  		)
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest ocicat.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest ocicat.",  "images/ocicat.jpg");	
 end 	
 
 rule "Kot syberyjski"
@@ -617,7 +620,7 @@ rule "Kot syberyjski"
  			(Property(type=="family" && value=="nie"))
  		)
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest kot syberyjski.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest kot syberyjski.", "images/syberyjski.jpg");	
 end
 
 rule "Kot abisyński"
@@ -628,5 +631,5 @@ rule "Kot abisyński"
  		Property(type=="fur" && value=="krótka")
  		Property(type=="children" && value=="tak")
  	then
-        MainWindow.displayResults("Rekomendowanym dla ciebie zwierzęciem jest kot abisyński.", null);	
+        MainWindow.displayResults("Rekomendowanym dla Ciebie zwierzęciem jest kot abisyński.", "images/abisynski.jpg");	
 end 

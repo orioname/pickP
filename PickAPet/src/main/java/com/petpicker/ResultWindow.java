@@ -1,8 +1,6 @@
 package com.petpicker;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -12,9 +10,12 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
+
+import javax.swing.BoxLayout;
+
 import java.awt.FlowLayout;
+import java.io.IOException;
 
 public class ResultWindow extends JFrame {
 
@@ -34,16 +35,12 @@ public class ResultWindow extends JFrame {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedLookAndFeelException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -54,7 +51,7 @@ public class ResultWindow extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
-		contentPane.add(panel);
+		contentPane.add(panel, BorderLayout.NORTH);
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		JTextArea resultText = new JTextArea();
@@ -64,14 +61,20 @@ public class ResultWindow extends JFrame {
 		resultText.setText(result);
 		panel.add(resultText);
 		
-		ImageIcon background = new ImageIcon("imagePath");
+		JPanel panel_1;	
+
+		panel_1 = new ImagePanel(imagePath);
 		
+		
+		contentPane.add(panel_1, BorderLayout.CENTER);
+		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+						
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2, BorderLayout.SOUTH);
-		panel_2.setLayout(new BorderLayout(0, 0));
+		panel_2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JButton ok = new JButton("ok");
-		panel_2.add(ok, BorderLayout.NORTH);
+		panel_2.add(ok);
 		ok.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);

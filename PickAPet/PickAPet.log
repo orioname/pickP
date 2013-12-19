@@ -68,7 +68,7 @@
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
   <factId>1</factId>
-  <objectToString>com.petpicker.Property@c74fe</objectToString>
+  <objectToString>com.petpicker.Property@50078e</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>7</type>
@@ -115,7 +115,7 @@
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
   <factId>2</factId>
-  <objectToString>com.petpicker.Property@15872f5</objectToString>
+  <objectToString>com.petpicker.Property@120cb3</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>7</type>
@@ -129,10 +129,16 @@
   <rule>allergyGeneral</rule>
   <declarations></declarations>
 </org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>allergySpecificI [3, 0]</activationId>
+  <rule>allergySpecificI</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
   <factId>3</factId>
-  <objectToString>com.petpicker.Property@16d3046</objectToString>
+  <objectToString>com.petpicker.Property@789d63</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>7</type>
@@ -142,175 +148,38 @@
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>6</type>
-  <activationId>family [0]</activationId>
-  <rule>family</rule>
+  <activationId>allergySpecificI [3, 0]</activationId>
+  <rule>allergySpecificI</rule>
   <declarations></declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>4</type>
-  <activationId>familyAllergy [4, 0]</activationId>
-  <rule>familyAllergy</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>4</type>
-  <activationId>children [4, 0]</activationId>
-  <rule>children</rule>
-  <declarations></declarations>
+  <activationId>excludeDog [4, 2]</activationId>
+  <rule>excludeDog</rule>
+  <declarations>dog=com.petpicker.Property@120cb3(2)</declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
   <factId>4</factId>
-  <objectToString>com.petpicker.Property@9effe0</objectToString>
+  <objectToString>com.petpicker.Property@1e5a5dc</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>7</type>
-  <activationId>family [0]</activationId>
-  <rule>family</rule>
+  <activationId>allergySpecificI [3, 0]</activationId>
+  <rule>allergySpecificI</rule>
   <declarations></declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>6</type>
-  <activationId>familyAllergy [4, 0]</activationId>
-  <rule>familyAllergy</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ObjectLogEvent>
-  <type>1</type>
-  <factId>5</factId>
-  <objectToString>com.petpicker.Property@a47cc3</objectToString>
-</org.drools.audit.event.ObjectLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>7</type>
-  <activationId>familyAllergy [4, 0]</activationId>
-  <rule>familyAllergy</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>6</type>
-  <activationId>children [4, 0]</activationId>
-  <rule>children</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>4</type>
-  <activationId>childrenAge [6, 0]</activationId>
-  <rule>childrenAge</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ObjectLogEvent>
-  <type>1</type>
-  <factId>6</factId>
-  <objectToString>com.petpicker.Property@1eae15f</objectToString>
-</org.drools.audit.event.ObjectLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>7</type>
-  <activationId>children [4, 0]</activationId>
-  <rule>children</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>6</type>
-  <activationId>childrenAge [6, 0]</activationId>
-  <rule>childrenAge</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ObjectLogEvent>
-  <type>1</type>
-  <factId>7</factId>
-  <objectToString>com.petpicker.Property@3de2df</objectToString>
-</org.drools.audit.event.ObjectLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>7</type>
-  <activationId>childrenAge [6, 0]</activationId>
-  <rule>childrenAge</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>6</type>
-  <activationId>lifeExpectancy [0]</activationId>
-  <rule>lifeExpectancy</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ObjectLogEvent>
-  <type>1</type>
-  <factId>8</factId>
-  <objectToString>com.petpicker.Property@10c0fa7</objectToString>
-</org.drools.audit.event.ObjectLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>7</type>
-  <activationId>lifeExpectancy [0]</activationId>
-  <rule>lifeExpectancy</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>6</type>
-  <activationId>otherAnimals [2]</activationId>
-  <rule>otherAnimals</rule>
-  <declarations></declarations>
+  <activationId>excludeDog [4, 2]</activationId>
+  <rule>excludeDog</rule>
+  <declarations>dog=com.petpicker.Property@120cb3(2)</declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>5</type>
-  <activationId>otherAnimals [1]</activationId>
-  <rule>otherAnimals</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ObjectLogEvent>
-  <type>1</type>
-  <factId>9</factId>
-  <objectToString>com.petpicker.Property@1e852be</objectToString>
-</org.drools.audit.event.ObjectLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>7</type>
-  <activationId>otherAnimals [2]</activationId>
-  <rule>otherAnimals</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>6</type>
   <activationId>activity [2, 0]</activationId>
   <rule>activity</rule>
   <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ObjectLogEvent>
-  <type>1</type>
-  <factId>10</factId>
-  <objectToString>com.petpicker.Property@15b5c1f</objectToString>
-</org.drools.audit.event.ObjectLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>7</type>
-  <activationId>activity [2, 0]</activationId>
-  <rule>activity</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>6</type>
-  <activationId>animalTraits [0]</activationId>
-  <rule>animalTraits</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>4</type>
-  <activationId>excludeDog [11, 2]</activationId>
-  <rule>excludeDog</rule>
-  <declarations>dog=com.petpicker.Property@15872f5(2)</declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ObjectLogEvent>
-  <type>1</type>
-  <factId>11</factId>
-  <objectToString>com.petpicker.Property@1f9b804</objectToString>
-</org.drools.audit.event.ObjectLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>7</type>
-  <activationId>animalTraits [0]</activationId>
-  <rule>animalTraits</rule>
-  <declarations></declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>6</type>
-  <activationId>excludeDog [11, 2]</activationId>
-  <rule>excludeDog</rule>
-  <declarations>dog=com.petpicker.Property@15872f5(2)</declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>5</type>
@@ -330,16 +199,159 @@
   <rule>fur</rule>
   <declarations></declarations>
 </org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>5</type>
+  <activationId>otherAnimals [2]</activationId>
+  <rule>otherAnimals</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ObjectLogEvent>
   <type>2</type>
   <factId>2</factId>
-  <objectToString>com.petpicker.Property@15872f5</objectToString>
+  <objectToString>com.petpicker.Property@120cb3</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>7</type>
-  <activationId>excludeDog [11, 2]</activationId>
+  <activationId>excludeDog [4, 2]</activationId>
   <rule>excludeDog</rule>
-  <declarations>dog=com.petpicker.Property@15872f5(2)</declarations>
+  <declarations>dog=com.petpicker.Property@120cb3(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>family [0]</activationId>
+  <rule>family</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>familyAllergy [5, 0]</activationId>
+  <rule>familyAllergy</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>children [5, 0]</activationId>
+  <rule>children</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>5</factId>
+  <objectToString>com.petpicker.Property@85e57</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>family [0]</activationId>
+  <rule>family</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>familyAllergy [5, 0]</activationId>
+  <rule>familyAllergy</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>6</factId>
+  <objectToString>com.petpicker.Property@1174031</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>familyAllergy [5, 0]</activationId>
+  <rule>familyAllergy</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>children [5, 0]</activationId>
+  <rule>children</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>childrenAge [7, 0]</activationId>
+  <rule>childrenAge</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>7</factId>
+  <objectToString>com.petpicker.Property@10b755d</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>children [5, 0]</activationId>
+  <rule>children</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>childrenAge [7, 0]</activationId>
+  <rule>childrenAge</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>8</factId>
+  <objectToString>com.petpicker.Property@5bcd91</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>childrenAge [7, 0]</activationId>
+  <rule>childrenAge</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>lifeExpectancy [0]</activationId>
+  <rule>lifeExpectancy</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>9</factId>
+  <objectToString>com.petpicker.Property@d47880</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>lifeExpectancy [0]</activationId>
+  <rule>lifeExpectancy</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>otherAnimals [1]</activationId>
+  <rule>otherAnimals</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>10</factId>
+  <objectToString>com.petpicker.Property@e29f36</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>otherAnimals [1]</activationId>
+  <rule>otherAnimals</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>animalTraits [0]</activationId>
+  <rule>animalTraits</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>11</factId>
+  <objectToString>com.petpicker.Property@6f3ea</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>animalTraits [0]</activationId>
+  <rule>animalTraits</rule>
+  <declarations></declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>6</type>
@@ -350,7 +362,7 @@
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
   <factId>12</factId>
-  <objectToString>com.petpicker.Property@1335b86</objectToString>
+  <objectToString>com.petpicker.Property@17044c5</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>7</type>
@@ -367,7 +379,7 @@
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
   <factId>13</factId>
-  <objectToString>com.petpicker.Property@e29f36</objectToString>
+  <objectToString>com.petpicker.Property@145582</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>7</type>
@@ -383,14 +395,14 @@
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>4</type>
-  <activationId>Maine coon [6, 13, 14, 1]</activationId>
-  <rule>Maine coon</rule>
+  <activationId>Kot abisyński [7, 13, 14, 1]</activationId>
+  <rule>Kot abisyński</rule>
   <declarations></declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
   <factId>14</factId>
-  <objectToString>com.petpicker.Property@181bd13</objectToString>
+  <objectToString>com.petpicker.Property@1004a1a</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>7</type>
@@ -400,14 +412,14 @@
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>6</type>
-  <activationId>Maine coon [6, 13, 14, 1]</activationId>
-  <rule>Maine coon</rule>
+  <activationId>Kot abisyński [7, 13, 14, 1]</activationId>
+  <rule>Kot abisyński</rule>
   <declarations></declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>7</type>
-  <activationId>Maine coon [6, 13, 14, 1]</activationId>
-  <rule>Maine coon</rule>
+  <activationId>Kot abisyński [7, 13, 14, 1]</activationId>
+  <rule>Kot abisyński</rule>
   <declarations></declarations>
 </org.drools.audit.event.ActivationLogEvent>
 </object-stream>

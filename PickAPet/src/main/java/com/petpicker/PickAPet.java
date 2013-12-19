@@ -1,5 +1,8 @@
 package com.petpicker;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
 import org.drools.KnowledgeBase;
 import org.drools.KnowledgeBaseFactory;
 import org.drools.builder.KnowledgeBuilder;
@@ -26,12 +29,13 @@ public class PickAPet {
                     
             ksession.fireAllRules();
             
-            MainWindow.displayResults("Niestety, nie istnieje zwierzę spełniające twoje potrzeby.", null);
+            MainWindow.displayResults("Niestety, nie istnieje zwierzę spełniające twoje potrzeby.", "images/Doge31.jpg");
             
             logger.close();
         } catch (Throwable t) {
             t.printStackTrace();
         }
+
     }
 
     private static KnowledgeBase readKnowledgeBase() throws Exception {

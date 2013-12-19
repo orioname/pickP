@@ -100,17 +100,6 @@ rule "timeRequirements"
     	Property timeReq = MainWindow.setQuestion("timeRequirements");
 		insert (new Property(timeReq.getType(), timeReq.getValue()));
 end
-/*
-rule "cost"
-	salience 80
-	when
-			not (exists (Property(type=="cost")))
-	 		not (exists (Property(type=="childSubstitute" && value=="tak"))) 
-	then
-	    	Property cost = MainWindow.setQuestion("cost");
-	    	insert (new Property(cost.getType(), cost.getValue()));
-end 
-*/
 rule "lifeExpectancy"
 	salience 98
 	when
@@ -217,15 +206,7 @@ rule "homeSurroundingsFlat"
 		Property hs = MainWindow.setQuestion("homeSurroundingsFlat");
 		insert (new Property(hs.getType(), hs.getValue()));
 end 
-/*
-rule "inteligence"
-	when
-		not (exists (Property(type=="inteligence")))
-	then
-		Property inteligence = MainWindow.setQuestion("inteligence");
-		insert (new Property(inteligence.getType(), inteligence.getValue()));
-end	
-*/
+
 
 rule "lifestyle"
 	when
@@ -330,7 +311,7 @@ rule "excludeDog"
 			(Property(type=="familyAllergyType" && value=="na większość zwierząt z sierścią"))
 			(Property(type=="allergyType" && value=="na psy"))
 			(Property(type=="familyAllergyType" && value=="na psy"))
-			(Property(type=="otherAnimal" && value=="koty"))
+			(Property(type=="otherAnimalsFriendliness" && value=="koty"))
 			(Property(type=="personality" && value=="niezależne"))
 			(Property(type=="homeSurroundingsFlat" && value=="nie"))
 		)  
@@ -347,10 +328,23 @@ rule "excludeCat"
 			(Property(type=="allergyType" && value=="na większość zwierząt z sierścią"))
 			(Property(type=="familyAllergyType" && value=="na większość zwierząt z sierścią"))
 			(Property(type=="allergyType" && value=="na koty"))
-			(Property(type=="otherAnimal" && value=="psy"))
+			(Property(type=="otherAnimalsFriendliness" && value=="psy"))
 			(Property(type=="familyAllergyType" && value=="na koty"))
 			(Property(type=="personality" && value=="towarzyskie"))
 		)  
 	then
 		modify (cat) {setValue("nie")};
-end 	 		
+end 
+
+rule "excludeFur"
+	salience 101
+	when
+		(or (p1: Property(type=="allergyType" && value=="na koty")
+		and p2: Property(type=="familyAllergyType" && value=="na psy")) 	
+			(p1: Property(type=="allergyType" && value=="na psy")
+		and p2: Property(type=="familyAllergyType" && value=="na koty"))
+		)	
+	then
+		modify (p1) {setValue("na większość zwierząt z sierścią")};
+		modify (p2) {setValue("na większość zwierząt z sierścią")};
+end	

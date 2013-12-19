@@ -28,7 +28,6 @@ public class MainWindow {
         private static JTextArea questionText ;
         JPanel optionsPanel;
         JPanel buttonPanel;
-        private static Question question = new Question("Witaj!", "", null);
         private static Question newQuestion = new Question("Witaj!", "", null);
         private static boolean clicked = false;
         private static boolean found = false;
@@ -110,10 +109,12 @@ public class MainWindow {
                         public void actionPerformed(ActionEvent arg0) {
                                 
                                 clicked = true;
+                                Next.setFocusPainted(false);
                                     
                         }
                 });
                 buttonPanel.add(Next);
+                
         }
         
         public static Property setQuestion(String questionName) {
@@ -154,10 +155,9 @@ public class MainWindow {
                                 radioButtons.get(i).setText(newQuestion.answers.get(i));
                                 radioButtons.get(i).setVisible(true);
                         }
+                        
                         frame.repaint();
                 }
-                
-                question = newQuestion;
         }
         
         private static void radioButtonsClear(){
@@ -182,6 +182,6 @@ public class MainWindow {
 			return clicked;
 		}
 		public void setClicked(boolean clicked) {
-			this.clicked = clicked;
+			MainWindow.clicked = clicked;
 		}
 }
